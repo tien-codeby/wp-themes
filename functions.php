@@ -203,6 +203,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 require get_template_directory() . '/inc/custom-menu-generator.php';
-require get_template_directory() . '/inc/custom_game/meta_boxes.php';
-require get_template_directory() . '/inc/custom_game/post_type.php';
+//require get_template_directory() . '/inc/custom_game/meta_boxes.php';
+//require get_template_directory() . '/inc/custom_game/post_type.php';
 

@@ -52,10 +52,10 @@
                         </a>
                         <?php
                         $menu = wp_get_menu_array('Menu 1');
-echo '<pre>';
-var_dump($menu);
-echo '</pre>';
-die();
+//echo '<pre>';
+//var_dump($menu);
+//echo '</pre>';
+//die();
                         ?>
                         <div class="collapse navbar-collapse">
                             <ul class="navbar-nav ml-auto">
