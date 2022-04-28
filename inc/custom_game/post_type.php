@@ -58,7 +58,7 @@ function custom_game_post_type()
         'capability_type' => 'page',
         'menu_icon' => 'dashicons-games',
     );
-    register_post_type('post_type', $args);
+    register_post_type('game', $args);
 }
 
 add_action('init', 'custom_game_post_type', 0);

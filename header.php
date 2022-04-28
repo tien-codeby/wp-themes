@@ -52,9 +52,9 @@
                         </a>
                         <?php
                         $menu = wp_get_menu_array('Menu 1');
-//echo '<pre>';
-//var_dump($menu);
-//echo '</pre>';
+echo '<pre>';
+var_dump($menu);
+echo '</pre>';
 //die();
                         ?>
                         <div class="collapse navbar-collapse">
