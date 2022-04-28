@@ -138,12 +138,38 @@ add_action( 'widgets_init', 'mumoiravn_com_widgets_init' );
  * Enqueue scripts and styles.
  */
 function mumoiravn_com_scripts() {
+//    wp_register_style('mumoiravn-com-bundle', get_template_directory_uri() . '/html/bundle.min.css');
+//    wp_enqueue_style('mumoiravn-com-bundle');
+
 	wp_enqueue_style( 'mumoiravn-com-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'mumoiravn-com-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'mumoiravn-com-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+    wp_enqueue_style( 'mumoiravn-com-bundle', get_template_directory_uri() . '/html/bundle.min.css', array(), _S_VERSION );
+    wp_style_add_data( 'mumoiravn-com-bundle', 'rtl', 'replace' );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+	wp_enqueue_script( 'mumoiravn-com-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+    wp_deregister_script('jquery');
+//    wp_register_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js', false, null);
+//    wp_enqueue_script('jquery');
+    wp_enqueue_script( 'mumoiravn-com-jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'mumoiravn-com-popper', get_template_directory_uri() . '/html/assets/js/popper.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'mumoiravn-com-bootstrap', get_template_directory_uri() . '/html/assets/js/bootstrap.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'mumoiravn-com-commons', get_template_directory_uri() . '/html/assets/js/commons.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'mumoiravn-com-commons', get_template_directory_uri() . '/html/assets/js/commons.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'mumoiravn-com-spin', get_template_directory_uri() . '/html/assets/js/spin.min.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'mumoiravn-com-ladda', get_template_directory_uri() . '/html/assets/js/ladda.min.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'mumoiravn-com-ladda-jquery', get_template_directory_uri() . '/html/assets/js/ladda.jquery.min.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'mumoiravn-com-jquery.fancybox', get_template_directory_uri() . '/html/assets/js/jquery.fancybox.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'mumoiravn-com-fakeLoader', get_template_directory_uri() . '/html/assets/js/fakeLoader.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'mumoiravn-com-jquery-confirm', get_template_directory_uri() . '/html/assets/js/jquery-confirm.min.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'mumoiravn-com-toastr', get_template_directory_uri() . '/html/assets/js/toastr.min.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'mumoiravn-com-jquery.validate', get_template_directory_uri() . '/html/assets/js/jquery.validate.min.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'mumoiravn-com-scripts', get_template_directory_uri() . '/html/assets/js/scripts.js', array(), _S_VERSION, true );
+
+//    wp_enqueue_script( 'jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js', array(), _S_VERSION, true );
+
+
+    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
@@ -175,4 +201,8 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+require get_template_directory() . '/inc/custom-menu-generator.php';
+require get_template_directory() . '/inc/custom_game/meta_boxes.php';
+require get_template_directory() . '/inc/custom_game/post_type.php';
 
