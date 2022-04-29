@@ -8,7 +8,7 @@ function custom_game_meta_boxes( $meta_boxes ) {
         'title'   => esc_html__( 'Untitled Field Group', 'online-generator' ),
         'id'      => 'untitled',
         'context' => 'normal',
-        'post_types' => array('tourist_review'),
+        'post_types' => array('game', 'post'),
         'fields'  => [
             [
                 'type' => 'file_input',
@@ -75,3 +75,4 @@ function custom_game_meta_boxes( $meta_boxes ) {
 
     return $meta_boxes;
 }
+
