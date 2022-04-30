@@ -66,40 +66,40 @@
         <section class="">
             <ul class="pagination justify-content-center">
                 <li class="page-item">
-                    <a class="page-link" href="https://mumoira.tv/?page=1" tabindex="-1">
+                    <a class="page-link" href="https://Mumoiravn.com/?page=1" tabindex="-1">
                         <i class="fa fa-angle-double-left"></i>
                     </a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="https://mumoira.tv/?page=1" tabindex="-1">
+                    <a class="page-link" href="https://Mumoiravn.com/?page=1" tabindex="-1">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 </li>
                 <li class="page-item active">
-                    <a class="page-link" href="https://mumoira.tv/?page=1">1</a>
+                    <a class="page-link" href="https://Mumoiravn.com/?page=1">1</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="https://mumoira.tv/?page=2">2</a>
+                    <a class="page-link" href="https://Mumoiravn.com/?page=2">2</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="https://mumoira.tv/?page=3">3</a>
+                    <a class="page-link" href="https://Mumoiravn.com/?page=3">3</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="https://mumoira.tv/?page=4">4</a>
+                    <a class="page-link" href="https://Mumoiravn.com/?page=4">4</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="https://mumoira.tv/?page=5">5</a>
+                    <a class="page-link" href="https://Mumoiravn.com/?page=5">5</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="https://mumoira.tv/?page=6">6</a>
+                    <a class="page-link" href="https://Mumoiravn.com/?page=6">6</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="https://mumoira.tv/?page=2">
+                    <a class="page-link" href="https://Mumoiravn.com/?page=2">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="https://mumoira.tv/?page=14">
+                    <a class="page-link" href="https://Mumoiravn.com/?page=14">
                         <i class="fa fa-angle-double-right"></i>
                     </a>
                 </li>
@@ -107,7 +107,7 @@
         </section>
     </nav>
     <h1 style="font-size: 18px; text-align: center;">Mu Mới Ra Hôm Nay - Top Mu Online Private mới
-        ra - Mumoira.tv</h1>
+        ra - Mumoiravn.com</h1>
     <div class="tool">
         <div class="row align-items-center">
             <div class="col-12 filter-wrap">
