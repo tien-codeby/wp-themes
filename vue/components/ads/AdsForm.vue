@@ -1,7 +1,7 @@
 <template>
   <ValidationObserver v-slot="{ handleSubmit }">
 
-  <div id="formDangMuMoi" @submit.prevent="handleSubmit(onSubmit)">
+  <form id="formDangMuMoi" @submit.prevent="handleSubmit(onSubmit)">
     Ghi chú: <label class="col-form-label text-danger font-italic">(*)</label> nghĩa là nội dung bắt buộc phải điền.
 
     <AdsFormItem name="Tên MU" :rules="rules.ten_mu.rules" required :custom-messages="rules.ten_mu.messages">
@@ -186,11 +186,23 @@
 
     <div class="form-group row">
       <div class="col-sm-12">
-        <vue2-tinymce-editor v-model="content" ref="editor" :height="700" :options="options"></vue2-tinymce-editor>
+        <TinyEditor />
       </div>
     </div>
 
-  </div>
+    <div class="form-group row">
+      <div class="col-5 col-md-3 col-lg-3">
+        <vue-recaptcha ref="recaptcha" sitekey="6Lfy6LAfAAAAAGsCTt6x8SPqgnkDgm-LxHESh1YN">
+        </vue-recaptcha>
+        <button type="submit" class="btn btn-sm btn-dangMuMoi" id="btnDangMuMoi">Đăng Mới</button>
+
+      </div>
+      <div class="col-5 col-md-3 col-lg-3">
+        <button type="button" class="btn btn-sm btn-xemThuBaiViet" id="btnPreviewDangMuMoi">Xem thử bài viết</button>
+      </div>
+    </div>
+
+  </form>
 
   </ValidationObserver>
 
@@ -202,7 +214,7 @@ import gameVer from '../../context/gameVer.json'
 import testHour from '../../context/testHour.json'
 import rules from "../../context/rules"
 
-import { Vue2TinymceEditor } from "vue2-tinymce-editor"
+import { VueRecaptcha } from 'vue-recaptcha'
 
 import {ValidationProvider, extend, ValidationObserver} from 'vee-validate';
 import { required, min_value } from 'vee-validate/dist/rules';
@@ -219,22 +231,23 @@ import 'vue2-datepicker/index.css'
 import 'vue2-datepicker/locale/vi';
 
 import AdsFormItem from './AdsFormItem.vue'
+import TinyEditor from "./TinyEditor.vue";
 
 export default {
   name: "AdsForm",
   components: {
+    TinyEditor,
     ValidationProvider,
     AdsFormItem,
     ValidationObserver,
     DatePicker,
-    Vue2TinymceEditor
+    VueRecaptcha
   },
   data() {
     return {
       betaHour,
       gameVer,
       testHour,
-      content: "<h1>Some initial content</h1>",
       form: {
         ten_mu: '',
         trang_chu: '',
@@ -249,76 +262,12 @@ export default {
         drop: '',
         anti_hack: ''
       },
-      rules,
-      options: {
-        plugins: 'preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
-        imagetools_cors_hosts: ['picsum.photos'],
-        menubar: 'file edit view insert format tools table help',
-        toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save | image media link',
-        toolbar_sticky: true,
-        autosave_ask_before_unload: true,
-        autosave_interval: '30s',
-        autosave_prefix: '{path}{query}-{id}-',
-        autosave_restore_when_empty: false,
-        autosave_retention: '2m',
-        image_advtab: true,
-        importcss_append: true,
-        image_caption: true,
-        quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
-        noneditable_noneditable_class: 'mceNonEditable',
-        toolbar_mode: 'sliding',
-        contextmenu: 'link image imagetools table',
-        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
-        /* enable title field in the Image dialog*/
-        image_title: true,
-        /* enable automatic uploads of images represented by blob or data URIs*/
-        automatic_uploads: true,
-        file_picker_types: 'image',
-        file_picker_callback: function (cb, value, meta) {
-          var input = document.createElement('input');
-          input.setAttribute('type', 'file');
-          input.setAttribute('accept', 'image/*');
-
-          /*
-            Note: In modern browsers input[type="file"] is functional without
-            even adding it to the DOM, but that might not be the case in some older
-            or quirky browsers like IE, so you might want to add it to the DOM
-            just in case, and visually hide it. And do not forget do remove it
-            once you do not need it anymore.
-          */
-
-          input.onchange = function () {
-            var file = this.files[0];
-
-            var reader = new FileReader();
-            reader.onload = function () {
-              /*
-                Note: Now we need to register the blob in TinyMCEs image blob
-                registry. In the next release this part hopefully won't be
-                necessary, as we are looking to handle it internally.
-              */
-              var id = 'blobid' + (new Date()).getTime();
-              var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
-              var base64 = reader.result.split(',')[1];
-              var blobInfo = blobCache.create(id, file, base64);
-              blobCache.add(blobInfo);
-
-              /* call the callback and populate the Title field with the file name */
-              setTimeout(() => {
-                cb(blobInfo.blobUri(), { title: file.name });
-              }, 5000)
-            };
-            reader.readAsDataURL(file);
-          };
-
-          input.click();
-        }
-      }
+      rules
     }
   },
   methods: {
     onSubmit() {
-      console.log(`1234`)
+      this.$refs.recaptcha.execute()
     }
   }
 }

@@ -23,6 +23,11 @@ Template Name: Ads Page
 
 	<link rel="stylesheet" href="https://static.mumoira.info/static/mmr2020/css/mumoira-search.min.css?v=20201210" media="all" onload="this.media='all'" />
 	<link rel="stylesheet" href="https://static.mumoira.info/static/mmr2020/css/style-cf.min.css?v=20201210" media="all" onload="this.media='all'" />
+
+    <script src="https://cdn.tiny.cloud/1/x02uh8wi045y1ru9c7woje3nctqnylxq0pjlh2r5ruvrhjln/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer>
+    </script>
 </head>
 
 <body class="blog sidebar-primary" data-new-gr-c-s-check-loaded="14.1058.0" data-gr-ext-installed="">

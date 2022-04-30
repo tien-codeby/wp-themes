@@ -8,5 +8,8 @@ Vue.use( VueCookies )*/
 
 Vue.component('AdsForm', require('./components/ads/AdsForm.vue').default)
 
+Vue.config.productionTip = false;
 
 const app = new Vue( {} ).$mount( '#app' )
+
+console.clear()
