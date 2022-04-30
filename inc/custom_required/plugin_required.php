@@ -80,6 +80,27 @@ function mumoira_register_required_plugins() {
 			'required'     => true, // If false, the plugin is only 'recommended' instead of required.
 //			'external_url' => 'https://github.com/thomasgriffin/New-Media-Image-Uploader', // If set, overrides default API URL and points to an external URL.
 		),
+        array(
+			'name'         => 'Post Duplicator', // The plugin name.
+			'slug'         => 'post-duplicator', // The plugin slug (typically the folder name).
+			'source'       => 'https://downloads.wordpress.org/plugin/post-duplicator.2.28.zip', // The plugin source.
+			'required'     => true, // If false, the plugin is only 'recommended' instead of required.
+//			'external_url' => 'https://github.com/thomasgriffin/New-Media-Image-Uploader', // If set, overrides default API URL and points to an external URL.
+		),
+        array(
+			'name'         => 'Post Types Order', // The plugin name.
+			'slug'         => 'post-types-order', // The plugin slug (typically the folder name).
+			'source'       => 'https://downloads.wordpress.org/plugin/post-types-order.1.9.8.zip', // The plugin source.
+			'required'     => true, // If false, the plugin is only 'recommended' instead of required.
+//			'external_url' => 'https://github.com/thomasgriffin/New-Media-Image-Uploader', // If set, overrides default API URL and points to an external URL.
+		),
+        array(
+			'name'         => 'Database Backup for WordPress', // The plugin name.
+			'slug'         => 'wp-db-backup', // The plugin slug (typically the folder name).
+			'source'       => 'https://downloads.wordpress.org/plugin/wp-db-backup.2.5.1.zip', // The plugin source.
+			'required'     => true, // If false, the plugin is only 'recommended' instead of required.
+//			'external_url' => 'https://github.com/thomasgriffin/New-Media-Image-Uploader', // If set, overrides default API URL and points to an external URL.
+		),
 
 		// This is an example of how to include a plugin from a GitHub repository in your theme.
 		// This presumes that the plugin code is based in the root of the GitHub repository

@@ -1,5 +1,5 @@
 <?php
-// Register Custom Game
+add_action('init', 'custom_game_post_type', 0);
 function custom_game_post_type()
 {
     $labels = array(
@@ -35,15 +35,13 @@ function custom_game_post_type()
         'label' => __('Game', 'text_domain'),
         'description' => __('Game Description', 'text_domain'),
         'labels' => $labels,
-//        'supports'              => false,
         'supports' => array(
             'title',
             'editor',
-//            'excerpt',
-//            'author',
             'thumbnail'
         ),
-        'taxonomies' => array('category', 'post_tag'),
+        'show_in_rest' => true,
+//        'taxonomies' => array('category', 'post_tag'),
         'hierarchical' => false,
         'public' => true,
         'show_ui' => true,
@@ -61,4 +59,3 @@ function custom_game_post_type()
     register_post_type('game', $args);
 }
 
-add_action('init', 'custom_game_post_type', 0);

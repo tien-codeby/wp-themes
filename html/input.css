@@ -12,3 +12,13 @@
         width: 1200px;
     }
 }*/
+
+.fixed-top{
+    @apply top-0
+}
+
+@media screen(sm) {
+    .fixed-top{
+        @apply top-[32px]
+    }
+}

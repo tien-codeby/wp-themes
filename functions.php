@@ -147,6 +147,9 @@ function mumoiravn_com_scripts() {
     wp_enqueue_style( 'mumoiravn-com-bundle', get_template_directory_uri() . '/html/bundle.min.css', array(), _S_VERSION );
     wp_style_add_data( 'mumoiravn-com-bundle', 'rtl', 'replace' );
 
+    wp_enqueue_style( 'mumoiravn-com-output', get_template_directory_uri() . '/html/assets/css/output.css', array(), _S_VERSION );
+    wp_style_add_data( 'mumoiravn-com-output', 'rtl', 'replace' );
+
 	wp_enqueue_script( 'mumoiravn-com-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
     wp_deregister_script('jquery');
 //    wp_register_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js', false, null);
@@ -204,77 +207,9 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 require_once get_template_directory() . '/inc/custom-menu-generator.php';
 require_once get_template_directory() . '/inc/custom_required/plugin_required.php';
-//require_once get_template_directory() . '/inc/custom_game/post_type.php';
-//require_once get_template_directory() . '/inc/custom_game/meta_boxes.php';
+require_once get_template_directory() . '/inc/custom_game/game_post_type.php';
+require_once get_template_directory() . '/inc/custom_game/game_meta_boxes.php';
+require_once get_template_directory() . '/inc/custom_game/season_taxonomy.php';
+//require_once get_template_directory() . '/inc/custom_game/gameType_taxonomy.php';
+require_once get_template_directory() . '/inc/custom_game/MuTheoLoai_taxonomy.php';
 //add_filter( 'rwmb_meta_boxes', 'custom_game_meta_boxes' );
-
-
-add_action('init', 'your_prefix_register_post_type');
-function your_prefix_register_post_type()
-{
-    $args = [
-        'label' => esc_html__('aaaa', 'text-domain'),
-        'labels' => [
-            'menu_name' => esc_html__('aaaa', 'your-textdomain'),
-            'name_admin_bar' => esc_html__('aaaa', 'your-textdomain'),
-            'add_new' => esc_html__('Add aaaa', 'your-textdomain'),
-            'add_new_item' => esc_html__('Add new aaaa', 'your-textdomain'),
-            'new_item' => esc_html__('New aaaa', 'your-textdomain'),
-            'edit_item' => esc_html__('Edit aaaa', 'your-textdomain'),
-            'view_item' => esc_html__('View aaaa', 'your-textdomain'),
-            'update_item' => esc_html__('View aaaa', 'your-textdomain'),
-            'all_items' => esc_html__('All aaaa', 'your-textdomain'),
-            'search_items' => esc_html__('Search aaaa', 'your-textdomain'),
-            'parent_item_colon' => esc_html__('Parent aaaa', 'your-textdomain'),
-            'not_found' => esc_html__('No aaaa found', 'your-textdomain'),
-            'not_found_in_trash' => esc_html__('No aaaa found in Trash', 'your-textdomain'),
-            'name' => esc_html__('aaaa', 'your-textdomain'),
-            'singular_name' => esc_html__('aaaa', 'your-textdomain'),
-        ],
-        'public' => true,
-        'exclude_from_search' => false,
-        'publicly_queryable' => true,
-        'show_ui' => true,
-        'show_in_nav_menus' => true,
-        'show_in_admin_bar' => true,
-        'show_in_rest' => true,
-        'capability_type' => 'post',
-        'hierarchical' => false,
-        'has_archive' => true,
-        'query_var' => true,
-        'can_export' => true,
-        'rewrite_no_front' => false,
-        'show_in_menu' => true,
-        'supports' => [
-            'title',
-            'editor',
-            'thumbnail',
-        ],
-
-        'rewrite' => true
-    ];
-
-    register_post_type('aaaa', $args);
-}
-
-
-add_filter( 'rwmb_meta_boxes', 'your_prefix_register_meta_boxes' );
-function your_prefix_register_meta_boxes( $meta_boxes ) {
-    $prefix = '';
-
-    $meta_boxes[] = [
-        'title'   => esc_html__( 'Untitled Field Group', 'online-generator' ),
-        'id'      => 'untitled1',
-        'context' => 'normal',
-        'post_types' => [ 'post', 'game', 'aaaa' ],
-        'fields'  => [
-            [
-                'type' => 'number',
-                'name' => esc_html__( 'Number', 'online-generator' ),
-                'id'   => $prefix . 'number_1kuszt84bsv',
-            ],
-        ],
-    ];
-
-    return $meta_boxes;
-}
