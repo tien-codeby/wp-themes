@@ -347,7 +347,7 @@ Template Name: Ads Page
 	</footer>
 </div>
 
-<script src="/wp-content/themes/mumoira/js/app.min.js"></script>
+<script src="/wp-content/themes/mumoiravn.com/js/app.min.js"></script>
 
 </body>
 </html>
