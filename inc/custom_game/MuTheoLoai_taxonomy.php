@@ -1,6 +1,6 @@
 <?php
-add_action( 'init', 'your_prefix_register_taxonomy' );
-function your_prefix_register_taxonomy() {
+add_action( 'init', 'custom_game_mutheoloai_taxonomy' );
+function custom_game_mutheoloai_taxonomy() {
     $args = [
         'label'  => esc_html__( 'MU theo loại', 'your-textdomain' ),
         'labels' => [
