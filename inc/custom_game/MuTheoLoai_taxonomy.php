@@ -37,5 +37,5 @@ function your_prefix_register_taxonomy() {
         'rewrite_hierarchical' => false,
         'rewrite' => true
     ];
-    register_taxonomy( 'mu-theo-loi', [ 'game' ], $args );
+    register_taxonomy( 'mu-theo-loai', [ 'game' ], $args );
 }

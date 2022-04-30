@@ -6,6 +6,7 @@
  *
  * @package mumoiravn.com
  */
+require_once (__DIR__.'/vendor/autoload.php');
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
@@ -142,19 +143,24 @@ function mumoiravn_com_scripts() {
 //    wp_enqueue_style('mumoiravn-com-bundle');
 
 	wp_enqueue_style( 'mumoiravn-com-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'mumoiravn-com-style', 'rtl', 'replace' );
+//	wp_style_add_data( 'mumoiravn-com-style', 'rtl', 'replace' );
 
-    wp_enqueue_style( 'mumoiravn-com-bundle', get_template_directory_uri() . '/html/bundle.min.css', array(), _S_VERSION );
-    wp_style_add_data( 'mumoiravn-com-bundle', 'rtl', 'replace' );
-
-    wp_enqueue_style( 'mumoiravn-com-output', get_template_directory_uri() . '/html/assets/css/output.css', array(), _S_VERSION );
-    wp_style_add_data( 'mumoiravn-com-output', 'rtl', 'replace' );
+//    wp_enqueue_style( 'mumoiravn-com-bundle', get_template_directory_uri() . '/html/bundle.min.css', array(), _S_VERSION );
+    wp_enqueue_style( 'mumoiravn-com-bootstrap', get_template_directory_uri() . '/html/assets/css/bootstrap.css', array(), _S_VERSION );
+    wp_enqueue_style( 'mumoiravn-com-jquery.pageslide', get_template_directory_uri() . '/html/assets/css/jquery.pageslide.css', array(), _S_VERSION );
+    wp_enqueue_style( 'mumoiravn-com-all', get_template_directory_uri() . '/html/assets/css/all.css', array(), _S_VERSION );
+    wp_enqueue_style( 'mumoiravn-com-ladda-themeless.min', get_template_directory_uri() . '/html/assets/css/ladda-themeless.min.css', array(), _S_VERSION );
+    wp_enqueue_style( 'mumoiravn-com-toastr.min', get_template_directory_uri() . '/html/assets/css/toastr.min.css', array(), _S_VERSION );
+    wp_enqueue_style( 'mumoiravn-com-jquery-confirm.min', get_template_directory_uri() . '/html/assets/css/jquery-confirm.min.css', array(), _S_VERSION );
+    wp_enqueue_style( 'mumoiravn-com-select2-bootstrap', get_template_directory_uri() . '/html/assets/css/select2-bootstrap.css', array(), _S_VERSION );
+    wp_enqueue_style( 'mumoiravn-com-jquery.fancybox', get_template_directory_uri() . '/html/assets/css/jquery.fancybox.css', array(), _S_VERSION );
+    wp_enqueue_style( 'mumoiravn-com-commons', get_template_directory_uri() . '/html/assets/css/commons.css', array(), _S_VERSION );
+    wp_enqueue_style( 'mumoiravn-com-style1', get_template_directory_uri() . '/html/assets/css/style.css', array(), _S_VERSION );
+//    wp_enqueue_style( 'mumoiravn-com-output', get_template_directory_uri() . '/html/assets/css/output.css', array(), _S_VERSION );
 
 	wp_enqueue_script( 'mumoiravn-com-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
     wp_deregister_script('jquery');
-//    wp_register_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js', false, null);
-//    wp_enqueue_script('jquery');
-    wp_enqueue_script( 'mumoiravn-com-jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js', array(), _S_VERSION, true );
+    wp_enqueue_script( 'jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js', array(), _S_VERSION, true );
     wp_enqueue_script( 'mumoiravn-com-popper', get_template_directory_uri() . '/html/assets/js/popper.js', array(), _S_VERSION, true );
     wp_enqueue_script( 'mumoiravn-com-bootstrap', get_template_directory_uri() . '/html/assets/js/bootstrap.js', array(), _S_VERSION, true );
     wp_enqueue_script( 'mumoiravn-com-commons', get_template_directory_uri() . '/html/assets/js/commons.js', array(), _S_VERSION, true );
@@ -210,41 +216,5 @@ require_once get_template_directory() . '/inc/custom_required/plugin_required.ph
 require_once get_template_directory() . '/inc/custom_game/game_post_type.php';
 require_once get_template_directory() . '/inc/custom_game/game_meta_boxes.php';
 require_once get_template_directory() . '/inc/custom_game/season_taxonomy.php';
-//require_once get_template_directory() . '/inc/custom_game/gameType_taxonomy.php';
 require_once get_template_directory() . '/inc/custom_game/MuTheoLoai_taxonomy.php';
-//add_filter( 'rwmb_meta_boxes', 'custom_game_meta_boxes' );
-
-function file_upload_callback() {
-
-    if(!array_key_exists('image', $_FILES)) {
-       status_header(400);
-       wp_send_json_error([
-           'message' => 'File không tồn tại'
-       ]);
-       wp_die();
-    }
-
-    $allowed_file_types = array('jpg' => 'image/jpg', 'jpeg' => 'image/jpeg', 'gif' => 'image/gif', 'png' => 'image/png', 'webp' => 'image/webp');
-    if (!in_array($_FILES['image']["type"], $allowed_file_types)) {
-        status_header(400);
-        wp_send_json_error([
-            'message' => 'Định dạng không được hỗ trợ'
-        ]);
-        wp_die();
-    }
-    $upload = media_handle_upload('image', 0);
-    if (is_wp_error($upload)) {
-        status_header(400);
-        wp_send_json_error([
-            'message' => 'Tải lên thất bại'
-        ]);
-        wp_die();
-    }
-    $url = wp_get_attachment_url($upload);
-    wp_send_json_success([
-        'data' => $url,
-        'message' => 'Tải lên thành công'
-    ]);
-}
-add_action('wp_ajax_ads_upload_image', 'file_upload_callback');
-add_action('wp_ajax_nopriv_ads_upload_image', 'file_upload_callback');
+require_once get_template_directory() . '/inc/custom_game/LoaiBai_taxonomy.php';

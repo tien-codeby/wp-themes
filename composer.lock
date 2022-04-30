@@ -4,8 +4,107 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8de789a2c20183752e72c14c93a923cf",
-    "packages": [],
+    "content-hash": "ef670deec2a717a9406dd93d26629af9",
+    "packages": [
+        {
+            "name": "jbzoo/utils",
+            "version": "4.5.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JBZoo/Utils.git",
+                "reference": "e199d72d6fbd922e8645c7be834188f62d632a8b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JBZoo/Utils/zipball/e199d72d6fbd922e8645c7be834188f62d632a8b",
+                "reference": "e199d72d6fbd922e8645c7be834188f62d632a8b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-filter": "*",
+                "ext-posix": "*",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "jbzoo/toolbox-dev": "^3.1.0",
+                "symfony/process": ">=4.4"
+            },
+            "suggest": {
+                "ext-gd": "To use Image helper",
+                "ext-intl": "*",
+                "ext-mbstring": "Provides multibyte specific string functions",
+                "jbzoo/data": ">=4.0",
+                "symfony/polyfill-mbstring": "For UTF-8 if ext-mbstring disabled",
+                "symfony/process": "For Cli::exec() method only"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/defines.php",
+                    "src/aliases.php"
+                ],
+                "psr-4": {
+                    "JBZoo\\Utils\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Denis Smetannikov",
+                    "email": "admin@jbzoo.com",
+                    "role": "lead"
+                },
+                {
+                    "name": "Brandon Wamboldt",
+                    "email": "brandon.wamboldt@gmail.com"
+                },
+                {
+                    "name": "Luís Nóbrega",
+                    "email": "luis.barros.nobrega@gmail.com"
+                }
+            ],
+            "description": "Collection of PHP functions, mini classes and snippets for everyday developer's routine life.",
+            "keywords": [
+                "array",
+                "cli",
+                "collection",
+                "command line",
+                "dates",
+                "email",
+                "env",
+                "environment",
+                "filesystem",
+                "filter",
+                "helper",
+                "helpers",
+                "http",
+                "image",
+                "mbstring",
+                "misc",
+                "serialize",
+                "slugify",
+                "string",
+                "timer",
+                "url",
+                "utility",
+                "utils"
+            ],
+            "support": {
+                "issues": "https://github.com/JBZoo/Utils/issues",
+                "source": "https://github.com/JBZoo/Utils/tree/4.5.5"
+            },
+            "time": "2022-03-26T19:03:05+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
