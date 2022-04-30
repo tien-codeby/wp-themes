@@ -186,14 +186,21 @@
 
     <div class="form-group row">
       <div class="col-sm-12">
-        <TinyEditor />
+        <TinyEditor ref="tiny" />
       </div>
     </div>
 
     <div class="form-group row">
       <div class="col-5 col-md-3 col-lg-3">
+
         <vue-recaptcha ref="recaptcha" sitekey="6Lfy6LAfAAAAAGsCTt6x8SPqgnkDgm-LxHESh1YN">
         </vue-recaptcha>
+
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-5 col-md-3 col-lg-3">
         <button type="submit" class="btn btn-sm btn-dangMuMoi" id="btnDangMuMoi">Đăng Mới</button>
 
       </div>

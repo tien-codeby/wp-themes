@@ -213,3 +213,38 @@ require_once get_template_directory() . '/inc/custom_game/season_taxonomy.php';
 //require_once get_template_directory() . '/inc/custom_game/gameType_taxonomy.php';
 require_once get_template_directory() . '/inc/custom_game/MuTheoLoai_taxonomy.php';
 //add_filter( 'rwmb_meta_boxes', 'custom_game_meta_boxes' );
+
+function file_upload_callback() {
+
+    if(!array_key_exists('image', $_FILES)) {
+       status_header(400);
+       wp_send_json_error([
+           'message' => 'File không tồn tại'
+       ]);
+       wp_die();
+    }
+
+    $allowed_file_types = array('jpg' => 'image/jpg', 'jpeg' => 'image/jpeg', 'gif' => 'image/gif', 'png' => 'image/png', 'webp' => 'image/webp');
+    if (!in_array($_FILES['image']["type"], $allowed_file_types)) {
+        status_header(400);
+        wp_send_json_error([
+            'message' => 'Định dạng không được hỗ trợ'
+        ]);
+        wp_die();
+    }
+    $upload = media_handle_upload('image', 0);
+    if (is_wp_error($upload)) {
+        status_header(400);
+        wp_send_json_error([
+            'message' => 'Tải lên thất bại'
+        ]);
+        wp_die();
+    }
+    $url = wp_get_attachment_url($upload);
+    wp_send_json_success([
+        'data' => $url,
+        'message' => 'Tải lên thành công'
+    ]);
+}
+add_action('wp_ajax_ads_upload_image', 'file_upload_callback');
+add_action('wp_ajax_nopriv_ads_upload_image', 'file_upload_callback');

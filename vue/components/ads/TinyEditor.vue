@@ -5,6 +5,11 @@
 <script>
 export default {
   name: "TinyEditor",
+  data() {
+    return {
+      anhtien: '124'
+    }
+  },
   mounted() {
     this.init()
   },
