@@ -1,8 +1,9 @@
 import Vue from 'vue'
 
-/*import Axios from 'axios'
+import Axios from 'axios'
 Vue.prototype.$http = Axios
 
+/**
 import VueCookies from 'vue-cookies'
 Vue.use( VueCookies )*/
 

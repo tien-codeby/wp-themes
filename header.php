@@ -62,7 +62,7 @@ $userId = get_current_user_id();
                     </div>
                     <div class="area-user d-none d-sm-flex align-items-center">
                         <div class="social btn-upload-adv">
-                            <a href="/dang-quang-cao-mu-online.htm" rel="nofollow">
+                            <a href="/dang-quang-cao" rel="nofollow">
                                 <span></span>
                                 <span></span>
                                 <span></span>
@@ -87,7 +87,7 @@ $userId = get_current_user_id();
                 <img src="<?= $logo ?>"
                      title="<?= bloginfo('name') ?>"
                      alt="<?= bloginfo('name') ?>"/>
-                <!-- <img src="./assets/images/header_logo.png" title="Mu Mới Ra - Kênh tổng hợp MU lớn nhất Việt Nam | MuMoiRa.tv" alt="Mu Mới Ra - Kênh tổng hợp MU lớn nhất Việt Nam | MuMoiRa.tv" /> -->
+                <!-- <img src="./assets/images/header_logo.png" title="Mu Mới Ra - Kênh tổng hợp MU lớn nhất Việt Nam | Mumoiravn.com" alt="Mu Mới Ra - Kênh tổng hợp MU lớn nhất Việt Nam | Mumoiravn.com" /> -->
             </a>
 <!--            <div class="sidebar-header">
                 <div class="user-pic">
@@ -153,7 +153,7 @@ $userId = get_current_user_id();
             </ul>
             <div class="upload-adv-absolute">
                 <div class="social btn-upload-adv">
-                    <a href="/dang-quang-cao-mu-online.htm" rel="nofollow">
+                    <a href="/dang-quang-cao" rel="nofollow">
                         <span></span>
                         <span></span>
                         <span></span>
