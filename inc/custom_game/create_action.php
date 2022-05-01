@@ -3,10 +3,6 @@ add_action('wp_ajax_custom_game_create_action', 'custom_game_create_action');
 add_action('wp_ajax_nopriv_custom_game_create_action', 'custom_game_create_action');
 function custom_game_create_action()
 {
-//    echo '<pre>';
-//    var_dump($_POST);
-//    echo '</pre>';
-//    die();
     $custom_post = array(
         'post_title'   => $_POST['title'],
         'post_content' => $_POST['content'],
@@ -26,9 +22,5 @@ function custom_game_create_action()
     rwmb_set_meta( $post_id, 'anti_hack', $_POST['anti_hack'] );
     wp_set_post_terms( $post_id, $_POST['mu_theo_loai'], 'mu-theo-loai' );
     wp_set_post_terms( $post_id, $_POST['season'], 'season' );
-
-//    echo '<pre>';
-//    var_dump($res);
-//    echo '</pre>';
-//    die();
+    wp_send_json_success(array('post_id' => $post_id));
 }
