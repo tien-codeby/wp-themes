@@ -95,8 +95,8 @@ export default {
       return $el.outerHTML
     },
 
-    postImage() {
-      console.log(12345)
+    reset() {
+      window.tinymce.get('noveleditor').setContent('')
     }
 
   }

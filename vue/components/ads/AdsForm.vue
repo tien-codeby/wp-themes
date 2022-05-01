@@ -291,6 +291,27 @@ export default {
         })
 
         await this.$http.post('/wp-admin/admin-ajax.php', form)
+
+        this.form = {
+          title: '',
+          trang_chu: '',
+          fanpage_ho_tro: '',
+          season: '',
+          content: '',
+          mu_theo_loai: '',
+          ten_may_chu: '',
+          mieu_ta_mu: '',
+          alpha_test: '',
+          open_beta: '',
+          exp: '',
+          drop: '',
+          anti_hack: ''
+        }
+
+        this.$refs.editor.reset()
+
+        alert('Đăng bài thành công')
+
       } catch (e) {}
       this.canUpload = true
     }
