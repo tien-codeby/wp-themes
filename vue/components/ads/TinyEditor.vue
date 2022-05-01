@@ -26,7 +26,7 @@ export default {
 
         try {
 
-          const { data } = await this.$http.post('https://codeby.xxx/wp-admin/admin-ajax.php', form)
+          const { data } = await this.$http.post('/wp-admin/admin-ajax.php', form)
           // window.test = success
           // success('https://codeby.xxx/wp-admin/admin-ajax.php');
           this.imageTemp.push({
@@ -40,7 +40,8 @@ export default {
 
       tinymce.init({
         selector: '#noveleditor',
-        language_url: 'https://codeby.xxx/wp-content/themes/mumoiravn.com/js/editor/vi.js',
+        height: 700,
+        language_url: '/wp-content/themes/mumoiravn.com/js/editor/vi.js',
         language: 'vi',
         plugins: 'advlist autolink lists link image charmap preview anchor pagebreak lists table emoticons autosave quickbars media',
         toolbar: 'undo redo | blocks fontfamily | ' +
