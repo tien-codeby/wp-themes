@@ -157,7 +157,7 @@ function mumoiravn_com_scripts() {
     wp_enqueue_style( 'mumoiravn-com-select2-bootstrap', get_template_directory_uri() . '/html/assets/css/select2-bootstrap.css', array(), _S_VERSION );
     wp_enqueue_style( 'mumoiravn-com-jquery.fancybox', get_template_directory_uri() . '/html/assets/css/jquery.fancybox.css', array(), _S_VERSION );
     wp_enqueue_style( 'mumoiravn-com-commons', get_template_directory_uri() . '/html/assets/css/commons.css', array(), _S_VERSION );
-    wp_enqueue_style( 'mumoiravn-com-style1', get_template_directory_uri() . '/html/assets/css/style.css', array(), _S_VERSION );
+    wp_enqueue_style( 'mumoiravn-com-style1', get_template_directory_uri() . '/html/assets/css/style1.css', array(), _S_VERSION );
 //    wp_enqueue_style( 'mumoiravn-com-output', get_template_directory_uri() . '/html/assets/css/output.css', array(), _S_VERSION );
 
 	wp_enqueue_script( 'mumoiravn-com-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
