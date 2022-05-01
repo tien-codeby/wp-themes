@@ -6,7 +6,7 @@
 
     <AdsFormItem name="Tên MU" :rules="rules.ten_mu.rules" required :custom-messages="rules.ten_mu.messages">
       <input
-          v-model="form.ten_mu"
+          v-model="form.title"
           type="text"
           class="form-control form-control-sm"
           id="gameName"
@@ -51,7 +51,7 @@
     </AdsFormItem>
 
     <AdsFormItem name="Phiên Bản" :rules="rules.phien_ban.rules" required :custom-messages="rules.phien_ban.messages">
-      <select v-model="form.phien_ban" class="form-control form-control-sm" id="gameVer" name="gameVer">
+      <select v-model="form.season" class="form-control form-control-sm" id="gameVer" name="gameVer">
         <option value="" selected="" disabled="" hidden="">Chọn phiên bản Mu Online</option>
         <option v-for="(item, index) in gameVer" :key="index" :value="item.value">
           {{ item.label }}
@@ -62,11 +62,11 @@
 
     <AdsFormItem name="Loại MU">
       <div class="custom-control custom-radio custom-control-inline">
-        <input v-model="form.loai_mu" type="radio" class="custom-control-input" id="muReset" name="gameType" value="reset" alt="Mu Reset"/>
+        <input v-model="form.mu_theo_loai" type="radio" class="custom-control-input" id="muReset" name="gameType" value="reset" alt="Mu Reset"/>
         <label class="custom-control-label" for="muReset">Reset</label>
       </div>
       <div class="custom-control custom-radio custom-control-inline">
-        <input v-model="form.loai_mu" type="radio" class="custom-control-input" id="muNonReset" name="gameType" value="nonReset" alt="Mu Non Reset" />
+        <input v-model="form.mu_theo_loai" type="radio" class="custom-control-input" id="muNonReset" name="gameType" value="nonReset" alt="Mu Non Reset" />
         <label class="custom-control-label" for="muNonReset">Non Reset</label>
       </div>
     </AdsFormItem>
@@ -186,15 +186,25 @@
 
     <div class="form-group row">
       <div class="col-sm-12">
-        <TinyEditor />
+        <TinyEditor ref="editor" />
       </div>
     </div>
 
     <div class="form-group row">
       <div class="col-5 col-md-3 col-lg-3">
-        <vue-recaptcha ref="recaptcha" sitekey="6Lfy6LAfAAAAAGsCTt6x8SPqgnkDgm-LxHESh1YN">
-        </vue-recaptcha>
-        <button type="submit" class="btn btn-sm btn-dangMuMoi" id="btnDangMuMoi">Đăng Mới</button>
+        <vue-recaptcha
+            ref="recaptcha"
+            sitekey="6Lfy6LAfAAAAAGsCTt6x8SPqgnkDgm-LxHESh1YN"
+            @verify="canUpload = true"
+            @error="canUpload = false"
+            @expired="canUpload = false"
+        ></vue-recaptcha>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-5 col-md-3 col-lg-3">
+        <button :disabled="!canUpload" type="submit" class="btn btn-sm btn-dangMuMoi" id="btnDangMuMoi">Đăng Mới</button>
 
       </div>
       <div class="col-5 col-md-3 col-lg-3">
@@ -249,11 +259,12 @@ export default {
       gameVer,
       testHour,
       form: {
-        ten_mu: '',
+        title: '',
         trang_chu: '',
         fanpage_ho_tro: '',
-        phien_ban: '',
-        loai_mu: '',
+        season: '',
+        content: '',
+        mu_theo_loai: '',
         ten_may_chu: '',
         mieu_ta_mu: '',
         alpha_test: '',
@@ -262,13 +273,27 @@ export default {
         drop: '',
         anti_hack: ''
       },
-      rules
+      rules,
+      canUpload: false
     }
   },
   methods: {
-    onSubmit() {
-      this.$refs.recaptcha.execute()
+    async onSubmit() {
+      this.form.content = this.$refs.editor.getContent()
+      this.canUpload = false
+      try {
+
+        const form = new FormData()
+        form.append('action', 'custom_game_create_action')
+
+        Object.entries(this.form).forEach((value) => {
+          form.append(value[0], value[1])
+        })
+
+        await this.$http.post('/wp-admin/admin-ajax.php', form)
+      } catch (e) {}
+      this.canUpload = true
     }
-  }
+  },
 }
 </script>
