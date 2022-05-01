@@ -15,7 +15,7 @@
           alt="Tên mu mới (vd: Mu Vệ Binh)"
           title="Tên mu mới (vd: Mu Vệ Binh)"
           autocomplete="off"
-          maxlength="20"
+          maxlength="80"
           autofocus=""
       />
     </AdsFormItem>
