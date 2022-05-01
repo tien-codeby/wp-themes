@@ -23,6 +23,13 @@ export default {
             required: 'Vui lòng điền thông tin máy chủ game (vd: máy chủ Noria, máy chủ Quyền Năng...)'
         }
     },
+    email: {
+        rules: 'required|email',
+        messages: {
+            required: 'Email là bắt buộc',
+            email: 'Email không hợp lệ'
+        }
+    },
     mieu_ta_mu: {
         rules: 'required',
         messages: {

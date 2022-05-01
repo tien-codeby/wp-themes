@@ -20,6 +20,17 @@
       />
     </AdsFormItem>
 
+    <AdsFormItem name="Email" :rules="rules.email.rules" required :custom-messages="rules.email.messages">
+      <input
+          v-model="form.email"
+          type="text"
+          class="form-control form-control-sm"
+          placeholder="Email người dăng bài"
+          autocomplete="off"
+          autofocus=""
+      />
+    </AdsFormItem>
+
     <AdsFormItem name="Trang Chủ" :rules="rules.trang_chu.rules" required :custom-messages="rules.trang_chu.messages">
       <input
           v-model="form.trang_chu"
@@ -227,13 +238,16 @@ import rules from "../../context/rules"
 import { VueRecaptcha } from 'vue-recaptcha'
 
 import {ValidationProvider, extend, ValidationObserver} from 'vee-validate';
-import { required, min_value } from 'vee-validate/dist/rules';
+import { required, min_value, email } from 'vee-validate/dist/rules';
 
 extend('required', {
   ...required
 });
 extend('min_value', {
   ...min_value
+})
+extend('email', {
+  ...email
 })
 
 import DatePicker from 'vue2-datepicker'
@@ -260,6 +274,7 @@ export default {
       testHour,
       form: {
         title: '',
+        email: '',
         trang_chu: '',
         fanpage_ho_tro: '',
         season: '',
