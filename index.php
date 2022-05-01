@@ -38,6 +38,10 @@
                     get_template_part('template-parts/games/list-thuong');
                     ?>
                     <div class="hr"></div>
+                    <?php
+                    get_template_part('template-parts/posts/list');
+                    ?>
+<!--
                     <div class="blog-wrap">
                         <h2 class="title !text-yellow-500">
                             Hướng dẫn MU Online mới cập nhật
@@ -191,6 +195,7 @@
                             </a>
                         </div>
                     </div>
+                -->
                 </div>
                 <div class="banner-right">
                     <?php

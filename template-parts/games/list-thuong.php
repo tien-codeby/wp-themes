@@ -21,8 +21,7 @@
         ]
     ];
     $queryGameThuong = new WP_Query($args);
-    if ($queryGameThuong->have_posts()):
-        ?>
+    if ($queryGameThuong->have_posts()):?>
         <ul class="list-post">
             <?php
             $i = 0;
