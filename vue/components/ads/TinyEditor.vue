@@ -42,11 +42,11 @@ export default {
         selector: '#noveleditor',
         language_url: 'https://codeby.xxx/wp-content/themes/mumoiravn.com/js/editor/vi.js',
         language: 'vi',
-        plugins: 'advlist autolink lists link image charmap preview anchor pagebreak lists table emoticons autosave quickbars',
+        plugins: 'advlist autolink lists link image charmap preview anchor pagebreak lists table emoticons autosave quickbars media',
         toolbar: 'undo redo | blocks fontfamily | ' +
             'bold italic forecolor backcolor | alignleft aligncenter ' +
             'alignright alignjustify | bullist numlist outdent indent | ' +
-            'table image emoticons | removeformat restoredraft help',
+            'table media image emoticons | removeformat restoredraft help',
         toolbar_mode: 'floating',
         automatic_uploads: true,
         file_picker_types: 'image',
