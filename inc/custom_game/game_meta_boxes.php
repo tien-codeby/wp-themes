@@ -7,7 +7,7 @@ function custom_game_meta_boxes( $meta_boxes ) {
         'title'   => esc_html__( 'Advance game', 'online-generator' ),
         'id'      => 'untitled',
         'context' => 'normal',
-        'post_types' => array('game', 'post'),
+        'post_types' => array('game'),
         'fields'  => [
             [
                 'type' => 'text',
@@ -53,6 +53,11 @@ function custom_game_meta_boxes( $meta_boxes ) {
                 'type' => 'number',
                 'name' => esc_html__( 'Drop', 'online-generator' ),
                 'id'   => $prefix . 'drop',
+            ],
+            [
+                'type' => 'text',
+                'name' => esc_html__( 'Anti Hack', 'online-generator' ),
+                'id'   => $prefix . 'anti_hack',
             ],
             [
                 'type' => 'text',

@@ -47,7 +47,15 @@ $i = $args['i'];
             </div>
         </div>
         <div class="item-post-right text-center">
+            <?php if(Dates::isToday(rwmb_get_value('open_beta'))): ?>
             <div class="text-bold-red">Open Beta hôm nay</div>
+            <?php endif; ?>
+            <?php if(Dates::isTomorrow(rwmb_get_value('open_beta'))): ?>
+            <div class="text-bold-red">Open Beta ngày mai</div>
+            <?php endif; ?>
+            <?php if(Dates::isYesterday(rwmb_get_value('open_beta'))): ?>
+            <div class="text-bold-red">Open Beta hôm qua</div>
+            <?php endif; ?>
         </div>
     </div>
     <div class="content-sub d-block d-sm-flex">
