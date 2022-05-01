@@ -27,7 +27,7 @@ $MuTheoLoai = Arr::getField($terms ? $terms : [], 'name');
                     </div>
                     <div class="detail-wrap" id="scroll-detail">
                         <?php
-                        get_template_part('template-parts/loc-theo');
+                        get_template_part('template-parts/games/loc-theo');
                         ?>
                         <div class="post-detail-wrap">
                             <h1><?php the_title() ?></h1>
@@ -83,32 +83,14 @@ $MuTheoLoai = Arr::getField($terms ? $terms : [], 'name');
                                 ?>
                             </div>
                         </div>
-                        <div class="tool">
-                            <div class="row align-items-center">
-                                <div class="col-12 filter-wrap">
-                                    <div class="link-version">
-                                        <p class="filter-title float-start">Tìm kiếm Mu theo phiên bản: </p>
-                                        <div class="float-start">
-                                            <a class="filter-btn filter-btn-season " href="/mu-version/season-2/6">Season
-                                                2</a>
-                                            <a class="filter-btn filter-btn-season " href="/mu-version/season-3/2">Season
-                                                3</a>
-                                            <a class="filter-btn filter-btn-season " href="/mu-version/season-6/3">Season
-                                                6</a>
-                                            <a class="filter-btn filter-btn-season " href="/mu-version/season-7/4">Season
-                                                7</a>
-                                            <a class="filter-btn filter-btn-season " href="/mu-version/season-16/19">Season
-                                                16</a>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                        get_template_part('template-parts/games/season');
+                        ?>
                     </div>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit unde, voluptate. Blanditiis dicta
-                    inventore molestias repellat repudiandae soluta voluptates. Consequatur culpa cum minima omnis
-                    perferendis sed. Dolor incidunt neque ratione!
+                    <div class="hr"></div>
+                    <?php
+                    get_template_part('template-parts/games/list-thuong-single');
+                    ?>
                 </div>
                 <div class="banner-right">
                     <?php
