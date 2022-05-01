@@ -9,19 +9,19 @@
 <html lang="vi-VN">
 <head>
 
-    <link href="https://static.mumoira.info/static/mmr2020/fontawesome/css/custom-mmr.min.css?v=20201210"
+    <link href="<?= get_template_directory_uri() ?>/css/custom-mmr.min.css?v=20201210"
           rel="stylesheet" media="all" onload="this.media='all'"/>
 
-    <link rel="stylesheet" href="https://static.mumoira.info/static/mmr2020/css/mumoira-main.min.css?v=20201210"/>
+    <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/css/mumoira-main.min.css?v=20201210"/>
 
     <link rel="stylesheet"
-          href="https://static.mumoira.info/static/mmr2020/css/mumoira-post-newgame.min.css?v=20201210"/>
+          href="<?= get_template_directory_uri() ?>/css/mumoira-post-newgame.min.css?v=20201210"/>
 
-    <link rel="stylesheet" href="https://static.mumoira.info/static/mmr2020/css/mumoira-main-2.min.css?v=20201210"/>
+    <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/css/mumoira-main-2.min.css?v=20201210"/>
 
-    <link rel="stylesheet" href="https://static.mumoira.info/static/mmr2020/css/mumoira-search.min.css?v=20201210"
+    <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/css/mumoira-search.min.css?v=20201210"
           media="all" onload="this.media='all'"/>
-    <link rel="stylesheet" href="https://static.mumoira.info/static/mmr2020/css/style-cf.min.css?v=20201210" media="all"
+    <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/css/style-cf.min.css?v=20201210" media="all"
           onload="this.media='all'"/>
 
     <script src="https://cdn.tiny.cloud/1/x02uh8wi045y1ru9c7woje3nctqnylxq0pjlh2r5ruvrhjln/tinymce/6/tinymce.min.js"
@@ -59,7 +59,7 @@
             <div id="xemthu"></div>
         </div>
     </main>
-    <script src="/wp-content/themes/mumoiravn.com/js/app.min.js"></script>
+    <script src="<?= get_template_directory_uri() ?>/js/app.min.js"></script>
 </div>
 <!--</body>-->
 <!--</html>-->

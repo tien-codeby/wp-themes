@@ -26,10 +26,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3 social d-none d-sm-block">
+                <?php
+                $logo_id = get_theme_mod('custom_logo');
+                $logo = wp_get_attachment_image_src($logo_id, 'full');
+                $logo = isset($logo[0]) ? $logo[0] : '';
+                ?>
                 <a href="/">
-                    <img src="./assets/images/logo_bottom.png"
-                         title="Mu Mới Ra - Kênh tổng hợp MU lớn nhất Việt Nam | Mumoiravn.com"
-                         alt="Mu Mới Ra - Kênh tổng hợp MU lớn nhất Việt Nam | Mumoiravn.com"/>
+                    <img src="<?= $logo ?>" title="<?= bloginfo('name') ?>" alt="<?= bloginfo('name') ?>"/>
                 </a>
                 <p class="mb-3">Website tổng hợp danh sách game Mu Online mới ra uy tín nhất Việt Nam</p>
                 <!-- <div id="fb-root"></div>
@@ -204,12 +207,11 @@
             <i class="fas fa-arrow-up fa-2x"></i>
         </div>
     </a>
-
-    <a href="https://m.me/Mumoiravn.com" title="Liên hệ với hỗ trợ của Mu Mới Ra qua chat Facebook Messenger"
+<!--    <a href="https://m.me/Mumoiravn.com" title="Liên hệ với hỗ trợ của Mu Mới Ra qua chat Facebook Messenger"
        rel="nofollow noopener noreferrer" target="_blank" class="quick-contact">
         <img src="./assets/images/Messenger-icon.png"
              alt="Liên hệ với hỗ trợ của Mu Mới Ra qua chat Facebook Messenger"/>
-    </a>
+    </a>-->
 </div>
 <?php wp_footer(); ?>
 </body>
