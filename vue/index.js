@@ -1,6 +1,7 @@
 import Vue from 'vue'
 
 /*import Axios from 'axios'
+config axios interceptor. auto add header,...
 Vue.prototype.$http = Axios
 
 import VueCookies from 'vue-cookies'
