@@ -10,7 +10,7 @@ function custom_game_create_action(): void
         'post_type'    => 'game'
     );
     $post_id  = wp_insert_post($custom_post);
-    rwmb_set_meta( $post_id, 'ten_mu', $_POST['ten_mu'] );
+    rwmb_set_meta( $post_id, 'email', $_POST['email'] );
     rwmb_set_meta( $post_id, 'trang_chu', $_POST['trang_chu'] );
     rwmb_set_meta( $post_id, 'fanpage_ho_tro', $_POST['fanpage_ho_tro'] );
     rwmb_set_meta( $post_id, 'ten_may_chu', $_POST['ten_may_chu'] );

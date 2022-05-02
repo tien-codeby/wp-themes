@@ -172,7 +172,16 @@
             <div class="col-md-3 f-info d-none d-sm-block">
                 <h3>Về chúng tôi</h3>
                 <ul>
-                    <li>
+                    <?php
+                    $menu1 = wp_get_menu_array('Menu Footer 2');
+                    foreach ($menu1 as $item) {?>
+                        <li>
+                            <a href="<?= $item['url'] ?>">
+                                <?= $item['title'] ?>
+                            </a>
+                        </li>
+                    <?php } ?>
+<!--                    <li>
                         <a href="/gioi-thieu.htm">
                             Giới thiệu
                         </a>
@@ -196,7 +205,7 @@
                         <a href="/thong-tin-thue-banner">
                             Thuê banner quảng cáo
                         </a>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
             <hr/>
