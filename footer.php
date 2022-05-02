@@ -101,27 +101,16 @@
             <div class="col-md-3 f-info d-none d-sm-block">
                 <h3>Nội Dung Website</h3>
                 <ul>
-                    <li>
-                        <a href="/mu-open-beta">
-                            Mu Open Beta Hôm Nay
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/mu-alpha-test">
-                            Mu Alpha Test Hôm Nay
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/huong-dan-choi-mu-online">
-                            Hướng Dẫn Chơi Mu Online
-                        </a>
-                    </li>
-                    <li>
-                        <a rel="nofollow" href="/dang-quang-cao-mu-online.htm">
-                            Đăng Mu Mới Miễn Phí
-                        </a>
-                    </li>
-                    <li>
+                    <?php
+                    $menu1 = wp_get_menu_array('Menu Footer 1');
+                    foreach ($menu1 as $item) {?>
+                        <li>
+                            <a href="<?= $item['url'] ?>">
+                                <?= $item['title'] ?>
+                            </a>
+                        </li>
+                    <?php } ?>
+<!--                    <li>
                         <a href="//www.dmca.com/Protection/Status.aspx?ID=c2cd9024-fccd-444d-a330-af1ed06ff01e"
                            title="DMCA.com Protection Status" class="dmca-badge" target="_blank"
                            rel="nofollow noopener">
@@ -130,13 +119,30 @@
                         </a>
                         <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"
                                 type="e6fa910112ec689bf6e5e74c-text/javascript"></script>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
             <div class="col-md-3 f-info d-none d-sm-block">
                 <h3>Tìm kiếm MU Online</h3>
                 <ul>
-                    <li>
+                    <?php
+                    $terms = get_terms([
+                        'taxonomy' => 'season',
+//                        'hide_empty' => false,
+                    ]);
+//                    echo '<pre>';
+//                    var_dump($terms);
+//                    echo '</pre>';
+//                    die();
+                    ?>
+                    <?php foreach ($terms as $term) {?>
+                        <li>
+                            <a href="<?= get_term_link($term) ?>">
+                                <?= $term->name ?>
+                            </a>
+                        </li>
+                    <?php } ?>
+                    <!--<li>
                         <a href="/mu-version/season-2/6">
                             Season 2
                         </a>
@@ -160,7 +166,7 @@
                         <a href="/mu-version/season-16/19">
                             Season 16
                         </a>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
             <div class="col-md-3 f-info d-none d-sm-block">

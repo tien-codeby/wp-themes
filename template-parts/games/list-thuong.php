@@ -10,16 +10,38 @@
     <?php
     $args = [
         'post_type' => 'game',
-        'post_status'    => 'publish',
+        'post_status' => 'publish',
         'tax_query' => [
             [
                 'taxonomy' => 'loai-bai',
                 'field' => 'slug',
                 'terms' => 'VIP',
-                'operator'  => 'NOT IN'
+                'operator' => 'NOT IN'
             ],
         ]
     ];
+    $termSeason = get_the_terms( $post->ID, 'season' );
+    if($termSeason) {
+        $args['tax_query'][] = [
+            'taxonomy' => 'season',
+            'field' => 'slug',
+            'terms' => $termSeason[0]->slug,
+        ];
+    }
+//echo '<pre>';
+//var_dump($terms);
+//echo '</pre>';
+//die();
+    $is_open = preg_match('#mu-open-beta#mis', get_permalink());
+    $is_alpha = preg_match('#mu-alpha-test#mis', get_permalink());
+    if ($is_open || $is_alpha) {
+        $args['meta_query'][] = [
+            'key' => $is_open ? 'open_beta' : 'alpha_test',
+            'value' => array(date('Y/m/d', strtotime('-1 days')), date('Y/m/d', strtotime('1 days'))),
+            'compare' => 'BETWEEN',
+            'type' => 'DATE'
+        ];
+    }
     $queryGameThuong = new WP_Query($args);
     if ($queryGameThuong->have_posts()):?>
         <ul class="list-post">
