@@ -6,6 +6,9 @@
  *
  * @package mumoiravn.com
  */
+
+use JetBrains\PhpStorm\NoReturn;
+
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require_once __DIR__ . '/vendor/autoload.php';
 }
@@ -245,3 +248,12 @@ function save_post_action($post_id, $post, $update)
         die();
     }
 }
+
+#[NoReturn] function send_email_after_post_ads($post_id): void
+{
+    echo '<pre>';
+    var_dump($post_id);
+    echo '</pre>';
+    die();
+}
+add_action('after_post_ads', 'send_email_after_post_ads', 10, 3);
