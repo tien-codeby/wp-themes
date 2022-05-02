@@ -2,8 +2,7 @@
 /**
  * Template Name: Dang Quang Cao
  */
-?>
-<?php get_header(); ?>
+get_header(); ?>
 
 <!DOCTYPE HTML>
 <html lang="vi-VN">

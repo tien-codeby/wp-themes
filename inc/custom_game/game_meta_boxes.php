@@ -11,8 +11,8 @@ function custom_game_meta_boxes( $meta_boxes ) {
         'fields'  => [
             [
                 'type' => 'text',
-                'name' => esc_html__( 'Tên MU', 'online-generator' ),
-                'id'   => $prefix . 'ten_mu',
+                'name' => esc_html__( 'Email', 'online-generator' ),
+                'id'   => $prefix . 'email',
             ],
             [
                 'type' => 'url',
