@@ -25,12 +25,12 @@
             ],
         ]
     ];
-    $termSeason = get_the_terms($post->ID, 'season');
-    if ($termSeason) {
+    $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
+    if ($term) {
         $args['tax_query'][] = [
             'taxonomy' => 'season',
             'field' => 'slug',
-            'terms' => $termSeason[0]->slug,
+            'terms' => $term->slug,
         ];
     }
     $is_open = preg_match('#mu-open-beta#mis', get_permalink());
