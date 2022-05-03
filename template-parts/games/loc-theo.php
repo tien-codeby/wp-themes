@@ -15,7 +15,9 @@
         </div>
         <div class="col-12 col-sm-5">
             <form class="input-group" method="get" action="/tim-kiem-mu">
-                <input type="text" class="form-control txt_keyword" name="keyword" placeholder="Tìm kiếm MU mới ra ...">
+                <input type="text" class="form-control txt_keyword" name="keyword" placeholder="Tìm kiếm MU mới ra ..."
+                value="<?= isset($_GET['keyword']) ? $_GET['keyword'] : '' ?>"
+                >
                 <div class="input-group-append">
                     <button class="btn btn-search" type="submit">
                         <i class="fa fa-search"></i>
