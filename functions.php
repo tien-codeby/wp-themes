@@ -235,16 +235,16 @@ require_once get_template_directory() . '/inc/custom_banner/banner_post_type.php
 require_once get_template_directory() . '/inc/custom_banner/banner_meta_boxes.php';
 require_once get_template_directory() . '/inc/custom_banner/position_taxonomy.php';
 //
-add_action('save_post', 'save_post_action', 10, 3);
-function save_post_action($post_id, $post, $update)
-{
-    if ($update && 'post' == $post->post_type) {
-        echo '<pre>';
-        var_dump(1);
-        echo '</pre>';
-        die();
-    }
-}
+//add_action('save_post', 'save_post_action', 10, 3);
+//function save_post_action($post_id, $post, $update)
+//{
+//    if ($update && 'post' == $post->post_type) {
+//        echo '<pre>';
+//        var_dump(1);
+//        echo '</pre>';
+//        die();
+//    }
+//}
 
 #[NoReturn] function send_email_after_post_ads($post_id): void
 {
