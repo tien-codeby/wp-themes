@@ -11,6 +11,7 @@
     $currentPage = intval(isset($_GET['page1']) ? $_GET['page1'] : 1);
     $perPage = 2;
     $args = [
+        's' => isset($_GET['keyword']) ? $_GET['keyword'] : '',
         'post_type' => 'game',
         'post_status' => 'publish',
         'posts_per_page' => $perPage,
