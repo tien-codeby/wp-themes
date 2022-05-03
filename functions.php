@@ -255,14 +255,12 @@ function save_post_action($post_id, $post, $update)
 }
 add_action('after_post_ads', 'send_email_after_post_ads', 10, 3);
 
-
-
-add_filter( 'posts_where', 'qirolab_posts_where', 10, 2 );
-function qirolab_posts_where( $where, &$wp_query )
-{
-    global $wpdb;
-    if ( $title = $wp_query->get( 'search_title' ) ) {
-        $where .= " AND " . $wpdb->posts . ".post_title LIKE '" . esc_sql( $wpdb->esc_like( $title ) ) . "%'";
-    }
-    return $where;
-}
+//add_filter( 'posts_where', 'qirolab_posts_where', 10, 2 );
+//function qirolab_posts_where( $where, &$wp_query )
+//{
+//    global $wpdb;
+//    if ( $title = $wp_query->get( 'search_title' ) ) {
+//        $where .= " AND " . $wpdb->posts . ".post_title LIKE '" . esc_sql( $wpdb->esc_like( $title ) ) . "%'";
+//    }
+//    return $where;
+//}

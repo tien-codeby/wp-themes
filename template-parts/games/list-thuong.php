@@ -10,22 +10,11 @@
     <?php
     $currentPage = intval(isset($_GET['page1']) ? $_GET['page1'] : 1);
     $perPage = 2;
-    function title_filter($where, &$wp_query)
-    {
-        global $wpdb;
-        // 2. pull the custom query in here:
-        if ($search_term = $wp_query->get('search_prod_title')) {
-            $where .= ' AND ' . $wpdb->posts . '.post_title LIKE \'%' . esc_sql(like_escape($search_term)) . '%\'';
-        }
-        return $where;
-    }
-
     $args = [
         'post_type' => 'game',
         'post_status' => 'publish',
         'posts_per_page' => $perPage,
         'paged' => $currentPage,
-        'search_title' => '$param',
         'tax_query' => [
             [
                 'taxonomy' => 'loai-bai',
