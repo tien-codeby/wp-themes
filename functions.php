@@ -146,7 +146,7 @@ add_action('widgets_init', 'mumoiravn_com_widgets_init');
 /**
  * Enqueue scripts and styles.
  */
-function mumoiravn_com_scripts()
+function mumoiravn_com_scripts(): void
 {
 //    wp_register_style('mumoiravn-com-bundle', get_template_directory_uri() . '/html/bundle.min.css');
 //    wp_enqueue_style('mumoiravn-com-bundle');
@@ -264,3 +264,15 @@ add_action('after_post_ads', 'send_email_after_post_ads', 10, 3);
 //    }
 //    return $where;
 //}
+
+
+function after_update_game($post_ID, $post_after, $post_before): void
+{
+    if($post_after->post_type == 'game' && $post_before->post_status == 'private' && $post_after->post_status == 'publish') {
+        // Todo: send email
+        echo 'NNN';
+        die();
+    }
+}
+
+add_action( 'post_updated', 'after_update_game', 10, 3 );

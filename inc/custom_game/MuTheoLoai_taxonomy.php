@@ -1,6 +1,7 @@
 <?php
 add_action( 'init', 'custom_game_mutheoloai_taxonomy' );
-function custom_game_mutheoloai_taxonomy() {
+function custom_game_mutheoloai_taxonomy(): void
+{
     $args = [
         'label'  => esc_html__( 'MU theo loại', 'your-textdomain' ),
         'labels' => [
