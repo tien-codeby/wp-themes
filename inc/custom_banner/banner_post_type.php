@@ -1,5 +1,5 @@
 <?php
-
+if(!class_exists('CodebyCore\CustomPostType')) return;
 use CodebyCore\CustomPostType;
 
 add_action('init', 'custom_banner_post_type', 0);

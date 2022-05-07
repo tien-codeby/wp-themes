@@ -165,7 +165,7 @@ function mumoiravn_com_scripts(): void
     wp_enqueue_style('mumoiravn-com-jquery.fancybox', get_template_directory_uri() . '/html/assets/css/jquery.fancybox.css', array(), _S_VERSION);
     wp_enqueue_style('mumoiravn-com-commons', get_template_directory_uri() . '/html/assets/css/commons.css', array(), _S_VERSION);
     wp_enqueue_style('mumoiravn-com-style1', get_template_directory_uri() . '/html/assets/css/style1.css', array(), _S_VERSION);
-//    wp_enqueue_style( 'mumoiravn-com-output', get_template_directory_uri() . '/html/assets/css/output.css', array(), _S_VERSION );
+    wp_enqueue_style( 'mumoiravn-com-output', get_template_directory_uri() . '/html/assets/css/output.css', array(), _S_VERSION );
 
     wp_enqueue_script('mumoiravn-com-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
     wp_deregister_script('jquery');
@@ -268,11 +268,25 @@ add_action('after_post_ads', 'send_email_after_post_ads', 10, 3);
 
 function after_update_game($post_ID, $post_after, $post_before): void
 {
-    if($post_after->post_type == 'game' && $post_before->post_status == 'private' && $post_after->post_status == 'publish') {
-        // Todo: send email
-        echo 'NNN';
-        die();
-    }
+//    if($post_after->post_type == 'game' && $post_before->post_status == 'private' && $post_after->post_status == 'publish') {
+        $blogusers = get_users('role=Administrator');
+        foreach ($blogusers as $user) {
+            $email = rwmb_get_value('email', '', $post_before->ID);
+            $subject = "Bài quảng cáo đã được duyệt";
+            $headers = 'From: ' . $email . "\r\n" .
+                'Reply-To: ' . $user->user_email . "\r\n" .
+                'Content-Type: text/html; charset=UTF-8';
+
+            $message = '<h3>Nội dung quảng cáo</h3>';
+            $message .= '<br/> Tên: ' . $post_before->title;
+            $message .= '<br/> Đã được duyệt';
+            $sent = wp_mail($user->user_email, $subject, $message, $headers);
+//            echo '<pre>';
+//            var_dump($sent);
+//            echo '</pre>';
+//            die();
+        }
+//    }
 }
 
 add_action( 'post_updated', 'after_update_game', 10, 3 );

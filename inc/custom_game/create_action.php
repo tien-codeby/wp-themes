@@ -28,7 +28,6 @@ function custom_game_create_action(): void
     $data = implode(',', $_POST);
 
     $blogusers = get_users('role=Administrator');
-    //print_r($blogusers);
     foreach ($blogusers as $user) {
         echo $user->user_email;
         $subject = "Có người vừa đăng quảng cáo";

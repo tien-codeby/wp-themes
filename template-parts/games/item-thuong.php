@@ -1,4 +1,5 @@
 <?php
+
 use JBZoo\Utils\Dates;
 use JBZoo\Utils\Arr;
 
@@ -21,16 +22,20 @@ $i = $args['i'];
             <div class="post-info">
                 <div class="info-line d-flex">
                     <div class="key-value">
-<!--                        <div class="key">- Sever:</div>-->
+                        <!--                        <div class="key">- Sever:</div>-->
                         <div class="value">Khai mở MC: <?php rwmb_the_value('ten_may_chu') ?></div>
                     </div>
                     <div class="key-right">
                         <div class="key">- Alpha Test:</div>
-                        <div class="value"><?= Dates::human(rwmb_get_value('alpha_test'), 'd/m') ?><span class="year">/<?= Dates::human(rwmb_get_value('alpha_test'), 'Y') ?></span>
+                        <div class="value"><?= Dates::human(rwmb_get_value('alpha_test'), 'd/m') ?><span
+                                    class="year">/<?= Dates::human(rwmb_get_value('alpha_test'), 'Y') ?></span>
                             (<?= Dates::human(rwmb_get_value('alpha_test'), 'H:i') ?>)
                         </div>
                     </div>
                 </div>
+                <?php
+                $openBeta = Dates::toStamp(rwmb_get_value('open_beta'));
+                ?>
                 <div class="info-line d-flex">
                     <div class="key-value">
                         <div class="key">- Phiên Bản:</div>
@@ -38,23 +43,23 @@ $i = $args['i'];
                     </div>
                     <div class="key-right">
                         <div class="key">- Open Beta:</div>
-                        <div class="value text-bold-red"><?= Dates::human(rwmb_get_value('open_beta'), 'd/m') ?>
-                            <span class="year">/<?= Dates::human(rwmb_get_value('open_beta'), 'Y') ?></span>
-                            (<?= Dates::human(rwmb_get_value('open_beta'), 'H:i') ?>)
+                        <div class="value text-bold-red"><?= Dates::human($openBeta, 'd/m') ?>
+                            <span class="year">/<?= Dates::human($openBeta, 'Y') ?></span>
+                            (<?= Dates::human($openBeta, 'H:i') ?>)
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="item-post-right text-center">
-            <?php if(Dates::isToday(rwmb_get_value('open_beta'))): ?>
-            <div class="text-bold-red">Open Beta hôm nay</div>
+            <?php if (Dates::isToday(rwmb_get_value('open_beta'))): ?>
+                <div class="text-bold-red">Open Beta hôm nay</div>
             <?php endif; ?>
-            <?php if(Dates::isTomorrow(rwmb_get_value('open_beta'))): ?>
-            <div class="text-bold-red">Open Beta ngày mai</div>
+            <?php if (Dates::isTomorrow(rwmb_get_value('open_beta'))): ?>
+                <div class="text-bold-red">Open Beta ngày mai</div>
             <?php endif; ?>
-            <?php if(Dates::isYesterday(rwmb_get_value('open_beta'))): ?>
-            <div class="text-bold-red">Open Beta hôm qua</div>
+            <?php if (Dates::isYesterday(rwmb_get_value('open_beta'))): ?>
+                <div class="text-bold-red">Open Beta hôm qua</div>
             <?php endif; ?>
         </div>
     </div>
@@ -62,11 +67,12 @@ $i = $args['i'];
         <div class="item-vip-left"></div>
         <div class="content">
             <p><?php the_title() ?></p>
-            <p><?php the_title() ?> <b>Khai mở MC: <?php rwmb_the_value('ten_may_chu') ?></b> vào <?= Dates::human(rwmb_get_value('open_beta'), 'H:i') ?>
+            <p><?php the_title() ?> <b>Khai mở MC: <?php rwmb_the_value('ten_may_chu') ?></b>
+                vào <?= Dates::human(rwmb_get_value('open_beta'), 'H:i') ?>
                 ngày <?= Dates::human(rwmb_get_value('open_beta'), 'd/m/Y') ?></p>
             <p>Exp: <?php rwmb_the_value('exp') ?>x - Drop: <?php rwmb_the_value('drop') ?>%</p>
             <p>Kiểu reset: <?= implode(',', $MuTheoLoai) ?></p>
-<!--            <p>Thể loại: Mu Custom thêm đồ mới</p>-->
+            <!--            <p>Thể loại: Mu Custom thêm đồ mới</p>-->
             <p>Antihack mà Mu sử dụng: <?php rwmb_the_value('anti_hack') ?></p>
         </div>
     </div>

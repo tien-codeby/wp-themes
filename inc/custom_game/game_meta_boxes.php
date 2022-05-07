@@ -1,4 +1,5 @@
 <?php
+if(!class_exists('CodebyCore\CodeByMetaBoxes')) return;
 
 use CodebyCore\CodeByMetaBoxes;
 

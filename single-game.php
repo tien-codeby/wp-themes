@@ -81,6 +81,10 @@ $MuTheoLoai = Arr::getField($terms ? $terms : [], 'name');
                                 <?php
                                 the_content();
                                 ?>
+                                <hr/>
+                                <p>
+                                ️🏆 Ghi chú bởi Mumoiravn.com: nếu bài giới thiệu mu mới ra có like & share nhận code game, vui lòng tham gia trực tiếp tại Fanpage của Hà Nội Mu theo đường dẫn sau: https://www.facebook.com/Mumoiravn.com
+                                </p>
                             </div>
                         </div>
                         <?php

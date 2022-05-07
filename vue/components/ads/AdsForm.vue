@@ -325,7 +325,8 @@ export default {
 
         this.$refs.editor.reset()
 
-        alert('Đăng bài thành công')
+        // alert('Đăng bài thành công')
+        window.location.assign('/dang-quang-cao-thanh-cong')
 
       } catch (e) {}
       this.canUpload = true
