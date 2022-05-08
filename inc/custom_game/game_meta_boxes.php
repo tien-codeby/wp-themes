@@ -7,6 +7,7 @@ add_filter( 'rwmb_meta_boxes', 'custom_game_meta_boxes' );
 function custom_game_meta_boxes( $meta_boxes ) {
 
     $meta_boxes[] = CodeByMetaBoxes::init('Game', ['game'])
+        ->addField('file_advanced', 'Anh Tiến To')
         ->addField('text', 'Email')
         ->addField('url', 'Trang Chủ')
         ->addField('url', 'Fanpage Hỗ Trợ')

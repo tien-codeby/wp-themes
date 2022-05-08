@@ -3,3 +3,10 @@
 .DS_Store
 **/.DS_Store
 /vendor/
+### Vue template
+# gitignore template for Vue.js projects
+#
+# Recommended template: Node.gitignore
+
+
+./js/app.min.js

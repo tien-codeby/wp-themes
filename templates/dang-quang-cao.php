@@ -35,25 +35,9 @@ get_header(); ?>
         <div class="posts-container container">
             <p>Vui lòng điền đầy đủ thông tin bên dưới để đăng bài giới thiệu server Mu mới của bạn.</p>
             <p>Bài của bạn sẽ được kiểm duyệt trong vòng 24h.</p>
-            <div class="con-form">
-                <div id="noticeMsg"></div>
 
-                <ads-form></ads-form>
-            </div>
+            <ads-form></ads-form>
 
-            <p style="color: #8256c5; font-weight: 600; margin-top: 20px;">Lưu ý:</p>
-            <ul>
-                <li>Các Mu có bài giới thiệu sơ sài sẽ không được duyệt</li>
-                <li>Bài viết bạn gửi sẽ được đăng lên trong vòng không quá 24h</li>
-                <li>Bài viết của bạn phải điền đầy đủ các thông tin bắt buộc</li>
-                <li>Các mu với tên miền miễn phí (vd: myvnc.com, no-ip.com...) sẽ không được duyệt.</li>
-                <li>Nếu có bất kỳ thắc mắc nào, bạn vui lòng <a href="https://mumoira.info/lien-he/"
-                                                                title="Liên hệ trực tiếp với hỗ trợ của website Mumoira.info">liên
-                        hệ trực tiếp</a> để được hỗ trợ.
-                </li>
-            </ul>
-            <hr/>
-            <div id="xemthu"></div>
         </div>
     </main>
     <script src="<?= get_template_directory_uri() ?>/js/app.min.js"></script>
