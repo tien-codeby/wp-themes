@@ -28,7 +28,7 @@
     $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
     if ($term) {
         $args['tax_query'][] = [
-            'taxonomy' => 'season',
+            'taxonomy' => $term->taxonomy,
             'field' => 'slug',
             'terms' => $term->slug,
         ];
@@ -75,23 +75,6 @@
             </div>
         </section>
     </nav>
-    <style>
-        .pagi a, .pagi span {
-            padding: 0.375rem 0.75rem;
-            position: relative;
-            display: block;
-            background-color: #fff;
-            border: 1px solid #dee2e6;
-            border-radius: 0.25rem;
-            margin: 0 10px;
-        }
-
-        .pagi .current {
-            background-color: #fa3527;
-            border: 1px solid #fa3527;
-            color: #fff !important;
-        }
-    </style>
     <!--    <nav class="mt-3 mb-3">
             <section class="">
                 <ul class="pagination justify-content-center">

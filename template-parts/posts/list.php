@@ -17,10 +17,14 @@
         Hướng dẫn MU Online mới cập nhật
     </h2>
     <?php
+    $currentPage = intval(isset($_GET['page1']) ? $_GET['page1'] : 1);
+    $perPage = 10;
     $args = [
         's' => @$_GET['keyword'],
         'post_type' => 'post',
         'post_status'    => 'publish',
+        'posts_per_page' => $perPage,
+        'paged' => $currentPage,
     ];
     $queryPost = new WP_Query($args);
     if ($queryPost->have_posts()):?>
@@ -33,5 +37,22 @@
     </ul>
     <?php
     endif;
+    $page1 = (get_query_var('page1')) ? get_query_var('page1') : 1;
+    $total_pages = $queryPost->max_num_pages;
+    $big = 999999999;
+    wp_reset_postdata();
     ?>
+    <nav class="mt-3 mb-3">
+        <section class="">
+            <div class="pagi pagination justify-content-center">
+                <?php
+                echo paginate_links(array(
+                    'format' => '/huong-dan-choi-mu-online-pc/?page1=%#%',
+                    'current' => max(1, $currentPage),
+                    'total' => $queryPost->max_num_pages
+                ));
+                ?>
+            </div>
+        </section>
+    </nav>
 </div>
