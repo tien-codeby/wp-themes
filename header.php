@@ -39,7 +39,7 @@ $userId = get_current_user_id();
                     $menuDesks = wp_get_menu_array('Menu Desktop');
                     ?>
                     <div class="collapse navbar-collapse">
-                        <ul class="navbar-nav ml-auto">
+                        <ul class="navbar-nav ">
                             <?php foreach ($menuDesks as $menu) { ?>
                                 <li class="nav-item" data-menu="/">
                                     <a class="nav-link" href="<?= $menu['url'] ?>">
