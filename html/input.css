@@ -1,27 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/*
-@layer components{
-    .container{
-        @apply w-auto;
-    }
-}
-@media screen(xl) {
-    .container{
-        width: 1200px;
-    }
-}*/
 
-.fixed-top{
-    @apply top-0
-}
-
-@media screen(sm) {
-    .fixed-top{
-        @apply top-[32px]
-    }
-}
 
 
 .pagi a, .pagi span {

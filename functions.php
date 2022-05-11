@@ -233,6 +233,7 @@ require_once get_template_directory() . '/inc/custom_game/season_taxonomy.php';
 require_once get_template_directory() . '/inc/custom_game/MuTheoLoai_taxonomy.php';
 require_once get_template_directory() . '/inc/custom_game/LoaiBai_taxonomy.php';
 require_once get_template_directory() . '/inc/custom_game/create_action.php';
+//require_once get_template_directory() . '/inc/custom_game/GameImageDefault.php';
 
 require_once get_template_directory() . '/inc/custom_banner/banner_post_type.php';
 require_once get_template_directory() . '/inc/custom_banner/banner_meta_boxes.php';

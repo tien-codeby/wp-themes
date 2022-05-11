@@ -150,6 +150,14 @@
   top: 1.25rem;
 }
 
+.top-0 {
+  top: 0px;
+}
+
+.top-\[32px\] {
+  top: 32px;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -166,10 +174,6 @@
   margin-bottom: 0.75rem;
 }
 
-.ml-auto {
-  margin-left: auto;
-}
-
 .mt-3 {
   margin-top: 0.75rem;
 }
@@ -180,6 +184,10 @@
 
 .mt-5 {
   margin-top: 1.25rem;
+}
+
+.ml-auto {
+  margin-left: auto;
 }
 
 .block {
@@ -577,28 +585,6 @@
 
 .\[hash\:base64\] {
   hash: base64;
-}
-
-/*
-@layer components{
-    .container{
-        @apply w-auto;
-    }
-}
-@media screen(xl) {
-    .container{
-        width: 1200px;
-    }
-}*/
-
-.fixed-top {
-  top: 0px;
-}
-
-@media (min-width: 640px) {
-  .fixed-top {
-    top: 32px;
-  }
 }
 
 .pagi a, .pagi span {

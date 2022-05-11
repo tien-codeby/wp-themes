@@ -18,6 +18,19 @@ $userId = get_current_user_id();
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <?php wp_head(); ?>
 </head>
+<style>
+<?php if(is_admin()){?>
+    .fixed-top{
+       top: 0
+    }
+
+    @media screen(max-width: 991px){
+        .fixed-top{
+            top: 32px;
+        }
+    }
+<?php } ?>
+</style>
 <body <?php body_class(); ?>>
 
 

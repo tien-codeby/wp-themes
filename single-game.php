@@ -38,6 +38,10 @@ $MuTheoLoai = Arr::getField($terms ? $terms : [], 'name');
                                              title="<?php the_title() ?>"
                                              alt="<?php the_title() ?>">
                                     </figure>
+                                <?php else: ?>
+                                    <figure class="img-post">
+                                        <img src="https://i.imgur.com/OzNoPQY.jpg"/>
+                                    </figure>
                                 <?php endif; ?>
                                 <div class="d-block d-sm-flex">
 <!--                                    <div class="img-share">
