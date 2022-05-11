@@ -1,17 +1,3 @@
-<!--<div class="tool" id="scroll-blog">
-    <div class="row  align-items-center">
-        <div class="col-12">
-            <form class="input-group" method="get" action="/huong-dan-choi-mu-online-pc">
-                <input value="<?= @$_GET['keyword'] ?>" type="text" class="form-control txt_keyword" name="keyword" placeholder="Tìm kiếm hướng dẫn">
-                <div class="input-group-append">
-                    <button class="btn btn-search" type="submit">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>-->
 <div class="tool">
     <div class="row  align-items-center">
         <div class="col-12 col-sm-7 filter-wrap">

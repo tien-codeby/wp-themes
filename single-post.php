@@ -25,11 +25,37 @@ $featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
                         get_template_part('template-parts/banners/item', null, ['terms' => 'banner-giua-nho']);
                         ?>
                     </div>
-                    <div class="tool" id="scroll-blog">
+<!--                    <div class="tool" id="scroll-blog">
                         <div class="row  align-items-center">
                             <div class="col-12">
                                 <form class="input-group" method="get" action="/huong-dan-choi-mu-online">
                                     <input type="text" class="form-control txt_keyword" name="keyword" placeholder="Tìm kiếm hướng dẫn">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-search" type="submit">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="tool">
+                        <div class="row  align-items-center">
+                            <div class="col-12 col-sm-7 filter-wrap">
+                                <div class="d-flex justify-content-start align-items-center">
+                                    <div class="d-flex">
+                                        <a class="btn btn-sm btn-success me-2" href="/huong-dan-choi-mu-online-pc?sort=new">
+                                            Mới nhất
+                                        </a>
+                                        <a class="btn btn-sm btn-danger" href="/huong-dan-choi-mu-online-pc?sort=view">
+                                            Xem nhiều
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-5">
+                                <form class="input-group" method="get" action="/huong-dan-choi-mu-online-pc">
+                                    <input type="text" class="form-control txt_keyword" name="keyword" placeholder="Tìm kiếm hướng dẫn" value="<?= @$_GET['keyword'] ?>">
                                     <div class="input-group-append">
                                         <button class="btn btn-search" type="submit">
                                             <i class="fa fa-search"></i>
