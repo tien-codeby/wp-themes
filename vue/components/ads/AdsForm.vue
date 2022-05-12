@@ -25,7 +25,7 @@
         <AdsFormItem name="Email" :rules="rules.email.rules" required :custom-messages="rules.email.messages">
           <input
               v-model="form.email"
-              type="text"
+              type="email"
               class="form-control form-control-sm"
               placeholder="Email người dăng bài"
               autocomplete="off"
@@ -33,7 +33,8 @@
           />
         </AdsFormItem>
 
-        <AdsFormItem name="Trang Chủ" :rules="rules.trang_chu.rules" required :custom-messages="rules.trang_chu.messages">
+        <AdsFormItem name="Trang Chủ" :rules="rules.trang_chu.rules" required
+                     :custom-messages="rules.trang_chu.messages">
           <input
               v-model="form.trang_chu"
               type="url"
@@ -63,7 +64,8 @@
           />
         </AdsFormItem>
 
-        <AdsFormItem name="Phiên Bản" :rules="rules.phien_ban.rules" required :custom-messages="rules.phien_ban.messages">
+        <AdsFormItem name="Phiên Bản" :rules="rules.phien_ban.rules" required
+                     :custom-messages="rules.phien_ban.messages">
           <select v-model="form.season" class="form-control form-control-sm" id="gameVer" name="gameVer">
             <option value="" selected="" disabled="" hidden="">Chọn phiên bản Mu Online</option>
             <option v-for="(item, index) in gameVer" :key="index" :value="item.value">
@@ -75,17 +77,20 @@
 
         <AdsFormItem name="Loại MU">
           <div class="custom-control custom-radio custom-control-inline">
-            <input v-model="form.mu_theo_loai" type="radio" class="custom-control-input" id="muReset" name="gameType" value="reset" alt="Mu Reset"/>
+            <input v-model="form.mu_theo_loai" type="radio" class="custom-control-input" id="muReset" name="gameType"
+                   value="reset" alt="Mu Reset"/>
             <label class="custom-control-label" for="muReset">Reset</label>
           </div>
           <div class="custom-control custom-radio custom-control-inline">
-            <input v-model="form.mu_theo_loai" type="radio" class="custom-control-input" id="muNonReset" name="gameType" value="nonReset" alt="Mu Non Reset" />
+            <input v-model="form.mu_theo_loai" type="radio" class="custom-control-input" id="muNonReset" name="gameType"
+                   value="nonReset" alt="Mu Non Reset"/>
             <label class="custom-control-label" for="muNonReset">Non Reset</label>
           </div>
         </AdsFormItem>
 
 
-        <AdsFormItem name="Tên Máy Chủ" :rules="rules.ten_may_chu.rules" required :custom-messages="rules.ten_may_chu.messages">
+        <AdsFormItem name="Tên Máy Chủ" :rules="rules.ten_may_chu.rules" required
+                     :custom-messages="rules.ten_may_chu.messages">
           <input
               v-model="form.ten_may_chu"
               type="text"
@@ -99,7 +104,8 @@
           />
         </AdsFormItem>
 
-        <AdsFormItem name="Miêu Tả MU" :rules="rules.mieu_ta_mu.rules" required :custom-messages="rules.mieu_ta_mu.messages">
+        <AdsFormItem name="Miêu Tả MU" :rules="rules.mieu_ta_mu.rules" required
+                     :custom-messages="rules.mieu_ta_mu.messages">
           <input
               v-model="form.mieu_ta_mu"
               type="text"
@@ -118,16 +124,19 @@
         <AdsFormItem name="Alpha Test">
           <template #full>
             <div class="col-3 col-md-2 col-lg-2">
-              <date-picker v-model="form.alpha_test" format="DD/MM/YYYY HH:mm" type="datetime" placeholder="Thời gian Alpha Test"></date-picker>
+              <date-picker v-model="form.alpha_test" format="YYYY-MM-DD HH:mm" type="datetime"
+                           placeholder="Thời gian Alpha Test"></date-picker>
             </div>
           </template>
         </AdsFormItem>
 
 
-        <AdsFormItem name="Open Beta" :rules="rules.open_beta.rules" required :custom-messages="rules.open_beta.messages">
+        <AdsFormItem name="Open Beta" :rules="rules.open_beta.rules" required
+                     :custom-messages="rules.open_beta.messages">
           <template #full>
             <div class="col-3 col-md-2 col-lg-2">
-              <date-picker v-model="form.open_beta" format="DD/MM/YYYY HH:mm" type="datetime" placeholder="Thời gian Open Beta"></date-picker>
+              <date-picker v-model="form.open_beta" format="YYYY-MM-DD HH:mm" type="datetime"
+                           placeholder="Thời gian Open Beta"></date-picker>
             </div>
           </template>
         </AdsFormItem>
@@ -193,13 +202,15 @@
 
         <div class="form-group row" id="form_gameDetail">
           <label for="inputEditor" class="col-12 col-md-12 col-lg-12 col-form-label">
-            Miêu tả chi tiết game Mu Online của bạn <span class="text-danger" style="font-style: italic; font-size: 13px;">(*)</span>: bài viết càng chi tiết sẽ càng thu hút nhiều người xem
+            Miêu tả chi tiết game Mu Online của bạn <span class="text-danger"
+                                                          style="font-style: italic; font-size: 13px;">(*)</span>: bài
+            viết càng chi tiết sẽ càng thu hút nhiều người xem
           </label>
         </div>
 
         <div class="form-group row">
           <div class="col-sm-12">
-            <TinyEditor ref="editor" />
+            <TinyEditor ref="editor"/>
           </div>
         </div>
 
@@ -217,11 +228,14 @@
 
         <div class="form-group row">
           <div class="col-5 col-md-3 col-lg-3">
-            <button :disabled="!canUpload" type="submit" class="btn btn-sm btn-dangMuMoi" id="btnDangMuMoi">Đăng Mới</button>
+            <button :disabled="!canUpload" type="submit" class="btn btn-sm btn-dangMuMoi" id="btnDangMuMoi">Đăng Mới
+            </button>
 
           </div>
           <div class="col-5 col-md-3 col-lg-3">
-            <button @click="previewPost()" type="button" class="btn btn-sm btn-xemThuBaiViet" id="btnPreviewDangMuMoi">Xem thử bài viết</button>
+            <button @click="previewPost()" type="button" class="btn btn-sm btn-xemThuBaiViet" id="btnPreviewDangMuMoi">
+              Xem thử bài viết
+            </button>
           </div>
         </div>
 
@@ -235,7 +249,8 @@
       <li>Bài viết bạn gửi sẽ được đăng lên trong vòng không quá 24h</li>
       <li>Bài viết của bạn phải điền đầy đủ các thông tin bắt buộc</li>
       <li>Các mu với tên miền miễn phí (vd: myvnc.com, no-ip.com...) sẽ không được duyệt.</li>
-      <li>Nếu có bất kỳ thắc mắc nào, bạn vui lòng <a href="/lien-he/" title="Liên hệ trực tiếp với hỗ trợ của website Mumoira.info">liên
+      <li>Nếu có bất kỳ thắc mắc nào, bạn vui lòng <a href="/lien-he/"
+                                                      title="Liên hệ trực tiếp với hỗ trợ của website Mumoira.info">liên
         hệ trực tiếp</a> để được hỗ trợ.
       </li>
     </ul>
@@ -258,7 +273,7 @@
         <li>Anti Hack: {{ preview.anti_hack }}</li>
       </ul>
 
-      <div v-html="preview.content" />
+      <div v-html="preview.content"/>
 
     </div>
 
@@ -272,10 +287,10 @@ import gameVer from '../../context/gameVer.json'
 import testHour from '../../context/testHour.json'
 import rules from "../../context/rules"
 
-import { VueRecaptcha } from 'vue-recaptcha'
+import {VueRecaptcha} from 'vue-recaptcha'
 
 import {ValidationProvider, extend, ValidationObserver} from 'vee-validate';
-import { required, min_value, email } from 'vee-validate/dist/rules';
+import {required, min_value, email} from 'vee-validate/dist/rules';
 
 extend('required', {
   ...required
@@ -366,9 +381,13 @@ export default {
         form.append('action', 'custom_game_create_action')
 
         Object.entries(this.form).forEach((value) => {
+          if (value[0] == 'alpha_test' || value[0] == 'open_beta') {
+            const datetime = dayjs(value[1]).format('YYYY-MM-DD hh:mm');
+            form.append(value[0], datetime)
+            return;
+          }
           form.append(value[0], value[1])
         })
-
         await this.$http.post('/wp-admin/admin-ajax.php', form)
 
         this.form = {
@@ -391,7 +410,8 @@ export default {
 
         window.location.href = '/dang-quang-cao-thanh-cong/'
 
-      } catch (e) {}
+      } catch (e) {
+      }
       this.canUpload = true
     },
     previewPost() {

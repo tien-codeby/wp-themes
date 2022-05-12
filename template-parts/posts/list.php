@@ -37,8 +37,14 @@
         'post_status'    => 'publish',
         'posts_per_page' => $perPage,
         'paged' => $currentPage,
+        'orderby' => 'post_view',
+        'ignore_term_order' => TRUE
     ];
     $queryPost = new WP_Query($args);
+//    echo '<pre>';
+//    var_dump($queryPost->request, 1);
+//    echo '</pre>';
+//    die();
     if ($queryPost->have_posts()):?>
     <ul class="blog-list">
         <?php
