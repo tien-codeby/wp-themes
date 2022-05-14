@@ -47,9 +47,10 @@ export default {
         language_url: '/wp-content/themes/mumoiravn.com/js/editor/vi.js',
         language: 'vi',
         plugins: 'advlist autolink lists link image charmap preview anchor pagebreak lists table emoticons autosave quickbars media',
-        toolbar: 'undo redo | blocks fontfamily | ' +
+        toolbar1: 'undo redo | blocks fontfamily | ' +
             'bold italic forecolor backcolor | alignleft aligncenter ' +
-            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'alignright alignjustify',
+        toolbar2: 'bullist numlist outdent indent | ' +
             'table media image emoticons | removeformat restoredraft help',
         toolbar_mode: 'floating',
         file_picker_types: 'image',
