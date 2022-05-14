@@ -382,7 +382,7 @@ export default {
 
         Object.entries(this.form).forEach((value) => {
           if (value[0] == 'alpha_test' || value[0] == 'open_beta') {
-            const datetime = dayjs(value[1]).format('YYYY-MM-DD hh:mm');
+            const datetime = dayjs(value[1]).format('YYYY-MM-DD HH:mm');
             form.append(value[0], datetime)
             return;
           }
