@@ -25,31 +25,31 @@ function custom_game_create_action(): void
 
     // do_action('after_post_ads', $post_id);
 
-    $data = implode(',', $_POST);
+    $subject = "Có người vừa đăng quảng cáo";
+
+    $message = '<h3>Nội dung quảng cáo</h3>';
+    $message .= '<br/> Tên: ' . $_POST['title'];
+    $message .= '<br/> Trang Chủ: ' . $_POST['trang_chu'];
+    $message .= '<br/> Fanpage Hỗ Trợ: ' . $_POST['fanpage_ho_tro'];
+    $message .= '<br/> Tên Máy Chủ: ' . $_POST['ten_may_chu'];
+    $message .= '<br/> Miêu Tả: ' . $_POST['mieu_ta_mu'];
+    $message .= '<br/> Alpha Test: ' . $_POST['alpha_test'];
+    $message .= '<br/> Open Beta: ' . $_POST['open_beta'];
+    $message .= '<br/> Exp: ' . $_POST['exp'];
+    $message .= '<br/> Drop: ' . $_POST['drop'];
+    $message .= '<br/> Anti Hack: ' . $_POST['anti_hack'];
+    $message .= '<br/> Mu Theo Loại: ' . $_POST['mu_theo_loai'];
+    $message .= '<br/> Mu Theo Loại: ' . $_POST['mu_theo_loai'];
+    $message .= '<br/> Season: ' . $_POST['season'];
+    $message .= '<br /> Content' . $_POST['content'];
+
+
 
     $blogusers = get_users('role=Administrator');
     foreach ($blogusers as $user) {
-        echo $user->user_email;
-        $subject = "Có người vừa đăng quảng cáo";
         $headers = 'From: '. $_POST['email'] . "\r\n" .
             'Reply-To: ' . $user->user_email . "\r\n" .
             'Content-Type: text/html; charset=UTF-8';
-
-        $message = '<h3>Nội dung quảng cáo</h3>';
-        $message .= '<br/> Tên: ' . $_POST['title'];
-        $message .= '<br/> Trang Chủ: ' . $_POST['trang_chu'];
-        $message .= '<br/> Fanpage Hỗ Trợ: ' . $_POST['fanpage_ho_tro'];
-        $message .= '<br/> Tên Máy Chủ: ' . $_POST['ten_may_chu'];
-        $message .= '<br/> Miêu Tả: ' . $_POST['mieu_ta_mu'];
-        $message .= '<br/> Alpha Test: ' . $_POST['alpha_test'];
-        $message .= '<br/> Open Beta: ' . $_POST['open_beta'];
-        $message .= '<br/> Exp: ' . $_POST['exp'];
-        $message .= '<br/> Drop: ' . $_POST['drop'];
-        $message .= '<br/> Anti Hack: ' . $_POST['anti_hack'];
-        $message .= '<br/> Mu Theo Loại: ' . $_POST['mu_theo_loai'];
-        $message .= '<br/> Mu Theo Loại: ' . $_POST['mu_theo_loai'];
-        $message .= '<br/> Season: ' . $_POST['season'];
-        $message .= '<br /> Content' . $_POST['content'];
 
         $sent = wp_mail($user->user_email, $subject, $message, $headers);
 
@@ -60,6 +60,11 @@ function custom_game_create_action(): void
         }
 
     }
+
+    $headers = 'From: '. $_POST['email'] . "\r\n" .
+        'Reply-To: ' . $_POST['email'] . "\r\n" .
+        'Content-Type: text/html; charset=UTF-8';
+    $sent = wp_mail($_POST['email'], $subject, $message, $headers);
 
 
     wp_send_json_success(array('post_id' => $post_id));
