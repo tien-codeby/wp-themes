@@ -272,25 +272,35 @@ add_action('after_post_ads', 'send_email_after_post_ads', 10, 3);
 
 function after_update_game($post_ID, $post_after, $post_before): void
 {
-    if($post_after->post_type == 'game' && $post_after->post_status != $post_before->post_status) {
-    $blogusers = get_users('role=Administrator');
-    foreach ($blogusers as $user) {
-        $email = rwmb_get_value('email', '', $post_before->ID);
-        $subject = "Bài quảng cáo đã được duyệt";
-
-        $headers[] = 'From: ' . $email;
-        $headers[] = 'Reply-To: ' . $user->user_email;
-        $headers[] = 'Content-Type: text/html; charset=UTF-8';
+    if ($post_after->post_type == 'game' && $post_after->post_status != $post_before->post_status) {
 
         $title = get_the_title($post_after->ID);
 
+        $subject = "Bài quảng cáo đã được duyệt";
         $message = '<h3>Nội dung quảng cáo</h3>';
         $message .= '<br/> Tên: ' . $title . ' ' . $post_after->post_status === 'publish' ? 'Đã được duyệt' : 'Đã bị từ chối';
 
-        $sent = wp_mail($user->user_email, $subject, $message, $headers);
+        $blogusers = get_users('role=Administrator');
 
+        foreach ($blogusers as $user) {
+            $email = rwmb_get_value('email', '', $post_before->ID);
+
+            $headers[] = 'From: ' . $email;
+            $headers[] = 'Reply-To: ' . $user->user_email;
+            $headers[] = 'Content-Type: text/html; charset=UTF-8';
+
+            $sent = wp_mail($user->user_email, $subject, $message, $headers);
+
+        }
+
+        $email = rwmb_get_value('email', '', $post_before->ID);
+
+        $headers[] = 'From: ' . $email;
+        $headers[] = 'Reply-To: ' . $email;
+        $headers[] = 'Content-Type: text/html; charset=UTF-8';
+
+        $sent = wp_mail($email, $subject, $message, $headers);
     }
-}
 }
 
 add_action('post_updated', 'after_update_game', 10, 4);
@@ -303,6 +313,6 @@ add_action('post_updated', 'after_update_game', 10, 4);
 //
 //add_filter('the_content', 'add_string_to_content', 10, 1);
 
-do_action( 'wp_mail_failed', function ($e, $mail_error_data) {
-    new WP_Error( 'wp_mail_failed', $e->getMessage(), $mail_error_data );
-} );
+do_action('wp_mail_failed', function ($e, $mail_error_data) {
+    new WP_Error('wp_mail_failed', $e->getMessage(), $mail_error_data);
+});
