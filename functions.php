@@ -276,9 +276,13 @@ function after_update_game($post_ID, $post_after, $post_before): void
 
         $title = get_the_title($post_after->ID);
 
-        $subject = "Bài quảng cáo đã được duyệt";
+        $subject = "Trạng thái bài quảng cáo";
         $message = '<h3>Nội dung quảng cáo</h3>';
-        $message .= '<br/> Tên: ' . $title . ' ' . $post_after->post_status === 'publish' ? 'Đã được duyệt' : 'Đã bị từ chối';
+        $message .= '<br/> Tên: ' . $title . ' ' . ($post_after->post_status === 'publish' ? 'Đã được duyệt' : 'Đã bị từ chối');
+
+        if($post_after->post_status === 'publish') {
+            $message .= '<br/> <a href="' . get_permalink($post_ID) . '">Link</a>';
+        }
 
         $blogusers = get_users('role=Administrator');
 
